@@ -179,7 +179,7 @@ func _punteggio(m: Motore, me: int) -> float:
 	var round_rimasti := 6 - int(m.s["round"])
 	var futuro := clampf(round_rimasti / 5.0, 0.0, 1.0)
 	var v := float(g["vp"]) * 3.0
-	v -= float(g["prestiti"]) * (6.0 if me == Motore.CC else 15.0)
+	v -= float(g["prestiti"]) * (16.0 if me == Motore.CC else 36.0)
 	v += float(g["inf"]) * 2.0 * futuro + float(g["inf"]) * 0.5
 	if me != Motore.ST:
 		v += float(m.s["borsa"][me]) * 0.9 * futuro
@@ -206,12 +206,17 @@ func _punteggio(m: Motore, me: int) -> float:
 
 func _beni_verso_uso(m: Motore, c: int) -> float:
 	var g := m.G(c)
-	var pop := m.popolazione(c)
+	var pop := maxi(1, m.popolazione(c))
+	var prosp: int = g["prosp"]
+	var prossimo: float = float(prosp + 1) if c == Motore.WC else float(Dati.PROSP_MC[mini(10, prosp + 1)])
+	var valore_uso := prossimo * 3.0 + 3.0
 	var v := 0.0
 	for r in ["sal", "ist", "lus"]:
-		var q: int = g["beni"][r]
-		var utili := mini(q, pop * 2)
-		v += utili * (1.6 if q >= pop else 1.1)
+		var q: float = g["beni"][r]
+		var extra := 6.0 if r == "sal" else (2.0 if r == "ist" else 0.0)
+		var pieni := floorf(q / pop)
+		v += pieni * (valore_uso + extra) * 0.85
+		v += fmod(q, pop) / pop * (valore_uso + extra) * 0.45
 	v += float(g["beni"]["cibo"]) * 0.9
 	return v
 
@@ -233,7 +238,7 @@ func _operai(m: Motore, futuro: float) -> float:
 		if loc != "" and m.s["aziende"].has(loc):
 			v += float(m.salario(loc)) / maxf(1.0, m.lavoratori_in(loc).size()) * 0.12 * futuro
 			if m.s["aziende"][loc]["sc"]:
-				v += 1.0
+				v += 2.2 - float(m.salario(loc)) / maxf(1.0, m.lavoratori_in(loc).size()) * 0.22
 	if m.s["dimostr"]:
 		v += 3.0
 	return v

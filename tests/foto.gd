@@ -16,12 +16,14 @@ func _initialize():
 		var ia := IA.new()
 		ia.rapida = true
 		var k := 0
-		while k < dec and not main.m.s["fine"]:
+		while (k < dec or not main.umano(main.m.attesa().get("g", -1))) and not main.m.s["fine"] and k < dec + 400:
 			var a: Dictionary = main.m.attesa()
 			main.m.scegli(ia.scegli(main.m, a))
 			k += 1
 		main.mostrata = -1
+		main.velocita = 1.0
 		main._aggiorna_tutto()
+		main.eventi_visti = main.m.s["eventi"].size()
 	elif modo == "regole":
 		main._menu_regole()
 	for i in 20:
