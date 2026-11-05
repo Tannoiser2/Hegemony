@@ -1,7 +1,7 @@
 # Hegemony - versione digitale
 
-Versione digitale non ufficiale, per uso personale, di **Hegemony: guida la tua classe alla vittoria**
-(Varnavas Timotheou e Vangelis Bagiartakis, Hegemonic Project). Quattro classi asimmetriche (Classe Operaia,
+Versione digitale non ufficiale, per uso personale, di **Hegemony: conquista la supremazia politica**
+(Varnavas Timotheou e Vangelis Bagiartakis, Hegemonic Project; edizione italiana Ghenos Games). Quattro classi asimmetriche (Classe Operaia,
 Classe Media, Classe Capitalista e Stato) con avversari IA per le classi non guidate da giocatori umani,
 sullo stesso dispositivo o online con gli amici.
 

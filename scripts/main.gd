@@ -213,7 +213,7 @@ func _logo(v: VBoxContainer) -> void:
 	riga.color = C_ORO
 	riga.custom_minimum_size = Vector2(0, 3)
 	v.add_child(riga)
-	var s := etichetta("GUIDA LA TUA CLASSE ALLA VITTORIA", F_BOLD, 16, C_ORO)
+	var s := etichetta("CONQUISTA LA SUPREMAZIA POLITICA", F_BOLD, 16, C_ORO)
 	s.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(s)
 
@@ -240,7 +240,7 @@ func mostra_menu() -> void:
 	v.add_child(bottone("RIPRENDI DAL SALVATAGGIO ONLINE", _continua_online, Color("#33465c"), 16))
 	v.add_child(bottone("GIOCA ONLINE CON GLI AMICI", _menu_online, Color("#1e5a8a"), 18))
 	v.add_child(bottone("REGOLE IN BREVE", _menu_regole, Color("#3a424d"), 16))
-	var nota := testo_lungo("Versione digitale non ufficiale per uso personale. Hegemony © Hegemonic Project.", 12, C_SPENTO)
+	var nota := testo_lungo("Versione digitale non ufficiale per uso personale. Hegemony © Hegemonic Project, edizione italiana Ghenos Games.", 12, C_SPENTO)
 	nota.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(nota)
 
