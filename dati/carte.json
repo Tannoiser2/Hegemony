@@ -1,0 +1,4385 @@
+{
+"aziende": {
+"c00": {
+"id": "c00",
+"n": "Supermercato",
+"en": "Supermarket",
+"ind": "agr",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"agr",
+"u"
+],
+"prod": 4,
+"mac": 1,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"start": true
+},
+"c01": {
+"id": "c01",
+"n": "Centro commerciale",
+"en": "Shopping Mall",
+"ind": "lus",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"lus",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"start": true
+},
+"c02": {
+"id": "c02",
+"n": "Collegio universitario",
+"en": "College",
+"ind": "ist",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"ist",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": true
+},
+"c03": {
+"id": "c03",
+"n": "Clinica",
+"en": "Clinic",
+"ind": "sal",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"sal",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": true
+},
+"c04": {
+"id": "c04",
+"n": "Allevamento ittico",
+"en": "Fish Farm",
+"ind": "agr",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"agr",
+"u",
+"u"
+],
+"prod": 6,
+"mac": 1,
+"sal": [
+25,
+30,
+35
+],
+"auto": false,
+"start": false
+},
+"c05": {
+"id": "c05",
+"n": "Azienda orticola",
+"en": "Vegetable Farm",
+"ind": "agr",
+"costo": 15,
+"tipo": "CC",
+"slot": [
+"u",
+"u",
+"u"
+],
+"prod": 5,
+"mac": 0,
+"sal": [
+20,
+25,
+30
+],
+"auto": false,
+"start": false
+},
+"c06": {
+"id": "c06",
+"n": "Supermercato",
+"en": "Supermarket",
+"ind": "agr",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"agr",
+"u"
+],
+"prod": 4,
+"mac": 1,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"start": false
+},
+"c07": {
+"id": "c07",
+"n": "Catena di fast food",
+"en": "Fast Food Chain",
+"ind": "agr",
+"costo": 8,
+"tipo": "CC",
+"slot": [
+"u",
+"u"
+],
+"prod": 3,
+"mac": 0,
+"sal": [
+10,
+15,
+20
+],
+"auto": false,
+"start": false
+},
+"c08": {
+"id": "c08",
+"n": "Azienda cerealicola automatizzata",
+"en": "Automated Grain Farm",
+"ind": "agr",
+"costo": 25,
+"tipo": "CC",
+"slot": [],
+"prod": 2,
+"mac": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": true,
+"start": false
+},
+"c09": {
+"id": "c09",
+"n": "Caseificio automatizzato",
+"en": "Automated Dairy Farm",
+"ind": "agr",
+"costo": 45,
+"tipo": "CC",
+"slot": [],
+"prod": 3,
+"mac": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": true,
+"start": false
+},
+"c10": {
+"id": "c10",
+"n": "Stadio",
+"en": "Stadium",
+"ind": "lus",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"lus",
+"u",
+"u"
+],
+"prod": 8,
+"mac": 3,
+"sal": [
+25,
+30,
+35
+],
+"auto": false,
+"start": false
+},
+"c11": {
+"id": "c11",
+"n": "Hotel",
+"en": "Hotel",
+"ind": "lus",
+"costo": 15,
+"tipo": "CC",
+"slot": [
+"u",
+"u",
+"u"
+],
+"prod": 7,
+"mac": 0,
+"sal": [
+20,
+25,
+30
+],
+"auto": false,
+"start": false
+},
+"c12": {
+"id": "c12",
+"n": "Centro commerciale",
+"en": "Shopping Mall",
+"ind": "lus",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"lus",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"start": false
+},
+"c13": {
+"id": "c13",
+"n": "Casa di moda",
+"en": "Fashion Company",
+"ind": "lus",
+"costo": 8,
+"tipo": "CC",
+"slot": [
+"u",
+"u"
+],
+"prod": 4,
+"mac": 2,
+"sal": [
+10,
+15,
+20
+],
+"auto": false,
+"start": false
+},
+"c14": {
+"id": "c14",
+"n": "Fabbrica di elettronica",
+"en": "Electronics Manufacturer",
+"ind": "lus",
+"costo": 25,
+"tipo": "CC",
+"slot": [],
+"prod": 3,
+"mac": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": true,
+"start": false
+},
+"c15": {
+"id": "c15",
+"n": "Fabbrica di automobili",
+"en": "Car Manufacturer",
+"ind": "lus",
+"costo": 45,
+"tipo": "CC",
+"slot": [],
+"prod": 5,
+"mac": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": true,
+"start": false
+},
+"c16": {
+"id": "c16",
+"n": "Azienda farmaceutica",
+"en": "Pharmaceutical Company",
+"ind": "sal",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"sal",
+"u",
+"u"
+],
+"prod": 8,
+"mac": 3,
+"sal": [
+20,
+30,
+40
+],
+"auto": false,
+"start": false
+},
+"c17": {
+"id": "c17",
+"n": "Villaggio medico",
+"en": "Medical Village",
+"ind": "sal",
+"costo": 24,
+"tipo": "CC",
+"slot": [
+"sal",
+"u",
+"u"
+],
+"prod": 9,
+"mac": 2,
+"sal": [
+20,
+30,
+40
+],
+"auto": false,
+"start": false
+},
+"c18": {
+"id": "c18",
+"n": "Clinica",
+"en": "Clinic",
+"ind": "sal",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"sal",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": false
+},
+"c19": {
+"id": "c19",
+"n": "Ospedale",
+"en": "Hospital",
+"ind": "sal",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"sal",
+"u"
+],
+"prod": 7,
+"mac": 0,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": false
+},
+"c20": {
+"id": "c20",
+"n": "Politecnico",
+"en": "Institute of Technology",
+"ind": "ist",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"ist",
+"u",
+"u"
+],
+"prod": 8,
+"mac": 3,
+"sal": [
+20,
+30,
+40
+],
+"auto": false,
+"start": false
+},
+"c21": {
+"id": "c21",
+"n": "Università",
+"en": "University",
+"ind": "ist",
+"costo": 24,
+"tipo": "CC",
+"slot": [
+"ist",
+"u",
+"u"
+],
+"prod": 9,
+"mac": 2,
+"sal": [
+20,
+30,
+40
+],
+"auto": false,
+"start": false
+},
+"c22": {
+"id": "c22",
+"n": "Collegio universitario",
+"en": "College",
+"ind": "ist",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"ist",
+"u"
+],
+"prod": 6,
+"mac": 2,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": false
+},
+"c23": {
+"id": "c23",
+"n": "Accademia",
+"en": "Academy",
+"ind": "ist",
+"costo": 20,
+"tipo": "CC",
+"slot": [
+"ist",
+"u"
+],
+"prod": 7,
+"mac": 0,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": false
+},
+"c24": {
+"id": "c24",
+"n": "Emittente televisiva",
+"en": "TV Station",
+"ind": "med",
+"costo": 24,
+"tipo": "CC",
+"slot": [
+"med",
+"u",
+"u"
+],
+"prod": 4,
+"mac": 0,
+"sal": [
+20,
+30,
+40
+],
+"auto": false,
+"start": false
+},
+"c25": {
+"id": "c25",
+"n": "Casa editrice",
+"en": "Publishing House",
+"ind": "med",
+"costo": 12,
+"tipo": "CC",
+"slot": [
+"u",
+"u",
+"u"
+],
+"prod": 3,
+"mac": 0,
+"sal": [
+20,
+25,
+30
+],
+"auto": false,
+"start": false
+},
+"c26": {
+"id": "c26",
+"n": "Società di lobbying",
+"en": "Lobbying Firm",
+"ind": "med",
+"costo": 16,
+"tipo": "CC",
+"slot": [
+"med",
+"u"
+],
+"prod": 3,
+"mac": 0,
+"sal": [
+10,
+20,
+30
+],
+"auto": false,
+"start": false
+},
+"c27": {
+"id": "c27",
+"n": "Stazione radio",
+"en": "Radio Station",
+"ind": "med",
+"costo": 8,
+"tipo": "CC",
+"slot": [
+"u",
+"u"
+],
+"prod": 2,
+"mac": 0,
+"sal": [
+10,
+15,
+20
+],
+"auto": false,
+"start": false
+},
+"m00": {
+"id": "m00",
+"n": "Minimarket",
+"en": "Convenience Store",
+"ind": "agr",
+"costo": 14,
+"tipo": "MC",
+"slot": [
+"agr"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 1,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": true,
+"mac": 0
+},
+"m01": {
+"id": "m01",
+"n": "Studio medico",
+"en": "Doctor's Office",
+"ind": "sal",
+"costo": 12,
+"tipo": "MC",
+"slot": [
+"sal"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 2,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": true,
+"mac": 0
+},
+"m02": {
+"id": "m02",
+"n": "Fast food",
+"en": "Fast Food Restaurant",
+"ind": "agr",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"agr",
+"u"
+],
+"dip": "",
+"prod": 3,
+"bonus": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m03": {
+"id": "m03",
+"n": "Minimarket",
+"en": "Convenience Store",
+"ind": "agr",
+"costo": 14,
+"tipo": "MC",
+"slot": [
+"agr"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 1,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m04": {
+"id": "m04",
+"n": "Fattoria biologica",
+"en": "Organic Farm",
+"ind": "agr",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"agr"
+],
+"dip": "agr",
+"prod": 2,
+"bonus": 2,
+"sal": [
+9,
+12,
+15
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m05": {
+"id": "m05",
+"n": "Gioielleria",
+"en": "Jewelry Store",
+"ind": "lus",
+"costo": 16,
+"tipo": "MC",
+"slot": [
+"lus",
+"u"
+],
+"dip": "",
+"prod": 4,
+"bonus": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m06": {
+"id": "m06",
+"n": "Negozio di videogiochi",
+"en": "Game Store",
+"ind": "lus",
+"costo": 12,
+"tipo": "MC",
+"slot": [
+"lus"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 2,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m07": {
+"id": "m07",
+"n": "Negozio di elettronica",
+"en": "Electronics Store",
+"ind": "lus",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"lus"
+],
+"dip": "lus",
+"prod": 2,
+"bonus": 4,
+"sal": [
+9,
+12,
+15
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m08": {
+"id": "m08",
+"n": "Farmacia",
+"en": "Pharmacy",
+"ind": "sal",
+"costo": 16,
+"tipo": "MC",
+"slot": [
+"sal",
+"u"
+],
+"dip": "",
+"prod": 4,
+"bonus": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m09": {
+"id": "m09",
+"n": "Studio medico",
+"en": "Doctor's Office",
+"ind": "sal",
+"costo": 12,
+"tipo": "MC",
+"slot": [
+"sal"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 2,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m10": {
+"id": "m10",
+"n": "Laboratorio di analisi",
+"en": "Medical Laboratory",
+"ind": "sal",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"sal"
+],
+"dip": "sal",
+"prod": 2,
+"bonus": 4,
+"sal": [
+9,
+12,
+15
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m11": {
+"id": "m11",
+"n": "Centro di formazione",
+"en": "Training Center",
+"ind": "ist",
+"costo": 16,
+"tipo": "MC",
+"slot": [
+"ist",
+"u"
+],
+"dip": "",
+"prod": 4,
+"bonus": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m12": {
+"id": "m12",
+"n": "Centro ripetizioni",
+"en": "Tutoring Company",
+"ind": "ist",
+"costo": 12,
+"tipo": "MC",
+"slot": [
+"ist"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 2,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m13": {
+"id": "m13",
+"n": "Scuola privata",
+"en": "Private School",
+"ind": "ist",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"ist"
+],
+"dip": "ist",
+"prod": 2,
+"bonus": 4,
+"sal": [
+9,
+12,
+15
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m14": {
+"id": "m14",
+"n": "Agenzia di PR",
+"en": "PR Agency",
+"ind": "med",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"med",
+"u"
+],
+"dip": "",
+"prod": 3,
+"bonus": 0,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m15": {
+"id": "m15",
+"n": "Giornale locale",
+"en": "Local Newspaper",
+"ind": "med",
+"costo": 14,
+"tipo": "MC",
+"slot": [
+"med"
+],
+"dip": "u",
+"prod": 2,
+"bonus": 1,
+"sal": [
+6,
+8,
+10
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"m16": {
+"id": "m16",
+"n": "Radio regionale",
+"en": "Regional Radio Station",
+"ind": "med",
+"costo": 20,
+"tipo": "MC",
+"slot": [
+"med"
+],
+"dip": "med",
+"prod": 2,
+"bonus": 2,
+"sal": [
+9,
+12,
+15
+],
+"auto": false,
+"start": false,
+"mac": 0
+},
+"p00": {
+"id": "p00",
+"n": "Policlinico universitario",
+"en": "University Hospital",
+"ind": "sal",
+"costo": 30,
+"tipo": "PUB",
+"slot": [
+"sal",
+"u",
+"u"
+],
+"prod": 6,
+"sal": [
+25,
+30,
+35
+],
+"auto": false,
+"gruppo": "p",
+"mac": 0
+},
+"p01": {
+"id": "p01",
+"n": "Ospedale pubblico",
+"en": "Public Hospital",
+"ind": "sal",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"sal",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "x",
+"mac": 0
+},
+"p02": {
+"id": "p02",
+"n": "Ospedale pubblico",
+"en": "Public Hospital",
+"ind": "sal",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"sal",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"p03": {
+"id": "p03",
+"n": "Ospedale pubblico",
+"en": "Public Hospital",
+"ind": "sal",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"sal",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"p04": {
+"id": "p04",
+"n": "Università tecnica",
+"en": "Technical University",
+"ind": "ist",
+"costo": 30,
+"tipo": "PUB",
+"slot": [
+"ist",
+"u",
+"u"
+],
+"prod": 6,
+"sal": [
+25,
+30,
+35
+],
+"auto": false,
+"gruppo": "p",
+"mac": 0
+},
+"p05": {
+"id": "p05",
+"n": "Università pubblica",
+"en": "Public University",
+"ind": "ist",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"ist",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "x",
+"mac": 0
+},
+"p06": {
+"id": "p06",
+"n": "Università pubblica",
+"en": "Public University",
+"ind": "ist",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"ist",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"p07": {
+"id": "p07",
+"n": "Università pubblica",
+"en": "Public University",
+"ind": "ist",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"ist",
+"u"
+],
+"prod": 4,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"p08": {
+"id": "p08",
+"n": "Televisione pubblica nazionale",
+"en": "National Public Broadcasting",
+"ind": "med",
+"costo": 30,
+"tipo": "PUB",
+"slot": [
+"med",
+"u",
+"u"
+],
+"prod": 4,
+"sal": [
+25,
+30,
+35
+],
+"auto": false,
+"gruppo": "p",
+"mac": 0
+},
+"p09": {
+"id": "p09",
+"n": "TV regionale",
+"en": "Regional TV Station",
+"ind": "med",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"med",
+"u"
+],
+"prod": 3,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "x",
+"mac": 0
+},
+"p10": {
+"id": "p10",
+"n": "TV regionale",
+"en": "Regional TV Station",
+"ind": "med",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"med",
+"u"
+],
+"prod": 3,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"p11": {
+"id": "p11",
+"n": "TV regionale",
+"en": "Regional TV Station",
+"ind": "med",
+"costo": 20,
+"tipo": "PUB",
+"slot": [
+"med",
+"u"
+],
+"prod": 3,
+"sal": [
+15,
+20,
+25
+],
+"auto": false,
+"gruppo": "r",
+"mac": 0
+},
+"coop": {
+"id": "coop",
+"n": "Cooperativa agricola",
+"en": "Cooperative Farm",
+"ind": "agr",
+"costo": 0,
+"tipo": "COOP",
+"slot": [
+"u",
+"u",
+"u"
+],
+"prod": 2,
+"sal": [
+0,
+0,
+0
+],
+"auto": false,
+"mac": 0
+}
+},
+"azioni": {
+"WC00": {
+"id": "WC00",
+"cls": "WC",
+"it": "Proletari di tutto il mondo, unitevi!",
+"en": "Proletarians of the World, Unite!",
+"t": "Aggiungi al sacchetto cubi Voto pari alla tua Popolazione.",
+"req": [],
+"leg": [],
+"fx": "cubi_pop",
+"copie": 2,
+"img": "w00"
+},
+"WC01": {
+"id": "WC01",
+"cls": "WC",
+"it": "Gruppi di interesse",
+"en": "Interest Groups",
+"t": "Rivela cubi Voto dal sacchetto finché non riveli 3 cubi di altre classi. Sostituiscili con tuoi cubi Voto e rimetti nel sacchetto tutti i cubi rivelati.",
+"req": [],
+"leg": [],
+"fx": "gruppi_interesse",
+"copie": 1,
+"img": "w01"
+},
+"WC02": {
+"id": "WC02",
+"cls": "WC",
+"it": "Fake news",
+"en": "Fake News",
+"t": "Pesca 6 cubi Voto dal sacchetto. Rimuovine fino a 4 e rimetti gli altri nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "fake_news",
+"copie": 1,
+"img": "w02"
+},
+"WC04": {
+"id": "WC04",
+"cls": "WC",
+"it": "Programma di reddito integrativo",
+"en": "Supplemental Income Program",
+"t": "Ricevi 1{V} dallo Stato per ogni tuo Lavoratore occupato. Poi puoi Acquistare Beni & Servizi.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [
+[
+"WC",
+1,
+10,
+"occupati"
+]
+],
+"fx": "reddito_integrativo",
+"copie": 2,
+"img": "w04"
+},
+"WC06": {
+"id": "WC06",
+"cls": "WC",
+"it": "Bonus d'ingaggio",
+"en": "Signing Bonus",
+"t": "Assegna fino a 4 Lavoratori disoccupati. Per ogni Lavoratore assegnato così a un'Azienda, ricevi 4{V} dal proprietario di quell'Azienda.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "bonus_ingaggio",
+"copie": 2,
+"img": "w06"
+},
+"WC08": {
+"id": "WC08",
+"cls": "WC",
+"it": "Incidente sul lavoro",
+"en": "Workplace Accident",
+"t": "Scegli un'industria. Ricevi 8{V} da un altro giocatore per ognuna delle sue Aziende di quell'industria con tuoi Lavoratori.",
+"req": [],
+"leg": [],
+"fx": "incidente",
+"copie": 1,
+"img": "w08"
+},
+"WC09": {
+"id": "WC09",
+"cls": "WC",
+"it": "Sussidi di disoccupazione",
+"en": "Unemployment Benefits",
+"t": "Ricevi 5{V} dallo Stato per ogni tuo Lavoratore disoccupato. Poi puoi Acquistare Beni & Servizi dallo Stato.",
+"req": [
+"4A",
+"4B"
+],
+"leg": [
+[
+"WC",
+1,
+3,
+"disoccupati"
+]
+],
+"fx": "sussidi_disoccupazione",
+"copie": 2,
+"img": "w09"
+},
+"WC11": {
+"id": "WC11",
+"cls": "WC",
+"it": "Movimento per la sanità",
+"en": "Healthcare Movement",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Welfare: Sanità.",
+"req": [],
+"leg": [],
+"fx": "movimento:4",
+"copie": 1,
+"img": "w11"
+},
+"WC12": {
+"id": "WC12",
+"cls": "WC",
+"it": "Movimento studentesco",
+"en": "Student Movement",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Welfare: Istruzione.",
+"req": [],
+"leg": [],
+"fx": "movimento:5",
+"copie": 1,
+"img": "w12"
+},
+"WC13": {
+"id": "WC13",
+"cls": "WC",
+"it": "Movimento dei lavoratori",
+"en": "Workers' Movement",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Mercato del Lavoro.",
+"req": [],
+"leg": [],
+"fx": "movimento:2",
+"copie": 1,
+"img": "w13"
+},
+"WC14": {
+"id": "WC14",
+"cls": "WC",
+"it": "Riforma dell'immigrazione",
+"en": "Immigration Reform",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Immigrazione.",
+"req": [],
+"leg": [],
+"fx": "movimento:7",
+"copie": 1,
+"img": "w14"
+},
+"WC15": {
+"id": "WC15",
+"cls": "WC",
+"it": "Riforme radicali",
+"en": "Radical Reforms",
+"t": "Proponi una Legge. Puoi mettere il segnalino in qualsiasi sezione (anche non adiacente a quella attuale). Non puoi chiedere una Votazione Immediata per questa Legge.",
+"req": [],
+"leg": [],
+"fx": "riforme_radicali",
+"copie": 1,
+"img": "w15"
+},
+"WC16": {
+"id": "WC16",
+"cls": "WC",
+"it": "Prestazioni sanitarie",
+"en": "Healthcare Benefits",
+"t": "Acquista {sal} dallo Stato, fino alla tua Popolazione, pagando metà del costo (arrotondato per eccesso).",
+"req": [
+"4B",
+"4C"
+],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+]
+],
+"fx": "mezzo_prezzo:sal",
+"copie": 2,
+"img": "w16"
+},
+"WC18": {
+"id": "WC18",
+"cls": "WC",
+"it": "Borsa di studio statale",
+"en": "State Scholarship",
+"t": "Acquista {ist} dallo Stato, fino alla tua Popolazione, pagando metà del costo (arrotondato per eccesso).",
+"req": [
+"5B",
+"5C"
+],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+]
+],
+"fx": "mezzo_prezzo:ist",
+"copie": 2,
+"img": "w18"
+},
+"WC20": {
+"id": "WC20",
+"cls": "WC",
+"it": "Evidenziare i problemi sociali",
+"en": "Highlight Social Issues",
+"t": "Acquista 3 {inf} dallo Stato per 15{V}.",
+"req": [],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+]
+],
+"fx": "compra_inf3",
+"copie": 1,
+"img": "w20"
+},
+"WC21": {
+"id": "WC21",
+"cls": "WC",
+"it": "Deregolamentazione del lavoro",
+"en": "Labor Market Deregulation",
+"t": "Assegna un numero qualsiasi di Lavoratori disoccupati. Se è in vigore [2C], puoi anche riassegnare un numero qualsiasi di Lavoratori già assegnati ad altre Aziende.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "assegna_libero",
+"copie": 2,
+"img": "w21"
+},
+"WC23": {
+"id": "WC23",
+"cls": "WC",
+"it": "Specializzazione",
+"en": "Specialization",
+"t": "Metti un Lavoratore qualificato a tua scelta dalla scorta nell'area Lavoratori Disoccupati. Poi Assegna fino a 3 Lavoratori.",
+"req": [
+"7B",
+"7C"
+],
+"leg": [],
+"fx": "specializzazione",
+"copie": 2,
+"img": "w23"
+},
+"WC25": {
+"id": "WC25",
+"cls": "WC",
+"it": "Sciopero generale",
+"en": "General Strike",
+"t": "Esegui uno Sciopero. Puoi mettere un segnalino Sciopero aggiuntivo per ogni tuo Sindacato.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "sciopero_generale",
+"copie": 2,
+"img": "w25"
+},
+"WC27": {
+"id": "WC27",
+"cls": "WC",
+"it": "Emigrazione",
+"en": "Migration",
+"t": "Se hai almeno 4 Lavoratori disoccupati, rimuovine fino a 2. Ricevi 5{V} per ogni Lavoratore non qualificato e 10{V} per ogni Lavoratore qualificato rimosso così.",
+"req": [],
+"leg": [],
+"fx": "emigrazione",
+"copie": 2,
+"img": "w27"
+},
+"WC29": {
+"id": "WC29",
+"cls": "WC",
+"it": "Sondaggio d'opinione",
+"en": "Public Opinion Polling",
+"t": "Proponi una Legge e rivela 5 cubi Voto dal sacchetto. Puoi poi chiedere una Votazione Immediata senza spendere {inf}: se lo fai usa quei 5 cubi invece di pescarne di nuovi, altrimenti rimettili nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "sondaggio",
+"copie": 1,
+"img": "w29"
+},
+"WC30": {
+"id": "WC30",
+"cls": "WC",
+"it": "Edilizia popolare",
+"en": "Affordable Housing",
+"t": "Paga 20{V} alla Classe Capitalista e guadagna 5{VP}, OPPURE paga 10{V} alla Classe Media e guadagna 3{VP}.",
+"req": [],
+"leg": [],
+"fx": "edilizia",
+"copie": 1,
+"img": "w30"
+},
+"WC31": {
+"id": "WC31",
+"cls": "WC",
+"it": "Straordinari nel settore pubblico",
+"en": "Public Sector Overtime",
+"t": "Scegli un'Azienda Pubblica operativa. Lo Stato paga il Salario dei suoi Lavoratori ed esegue una Produzione per quell'Azienda. Poi puoi Acquistare Beni & Servizi dallo Stato del tipo prodotto da quell'Azienda.",
+"req": [],
+"leg": [],
+"fx": "straordinari_pubblici",
+"copie": 2,
+"img": "w31"
+},
+"WC33": {
+"id": "WC33",
+"cls": "WC",
+"it": "Cooperativa agricola",
+"en": "Cooperative Farm",
+"t": "Se hai almeno 3 Lavoratori disoccupati, costruisci una Cooperativa Agricola (accanto alla tua plancia) e Assegna lì 3 di quei Lavoratori.",
+"req": [],
+"leg": [],
+"fx": "cooperativa",
+"copie": 2,
+"img": "w33"
+},
+"WC35": {
+"id": "WC35",
+"cls": "WC",
+"it": "Bisogno di cambiamento",
+"en": "Need for Change",
+"t": "Proponi 2 Leggi.",
+"req": [],
+"leg": [],
+"fx": "due_leggi",
+"copie": 3,
+"img": "w35"
+},
+"WC38": {
+"id": "WC38",
+"cls": "WC",
+"it": "Rilancio del turismo interno",
+"en": "Boost Domestic Tourism",
+"t": "Acquista {lus} da un altro giocatore, fino alla tua Popolazione, pagando metà del costo (arrotondato per eccesso). L'altra metà la paga lo Stato.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+]
+],
+"fx": "turismo_interno",
+"copie": 2,
+"img": "w38"
+},
+"MC00": {
+"id": "MC00",
+"cls": "MC",
+"it": "Gruppi di interesse",
+"en": "Interest Groups",
+"t": "Rivela cubi Voto dal sacchetto finché non riveli 3 cubi di altre classi. Sostituiscili con tuoi cubi Voto e rimetti nel sacchetto tutti i cubi rivelati.",
+"req": [],
+"leg": [],
+"fx": "gruppi_interesse",
+"copie": 1,
+"img": "a00"
+},
+"MC01": {
+"id": "MC01",
+"cls": "MC",
+"it": "Fake news",
+"en": "Fake News",
+"t": "Pesca 6 cubi Voto dal sacchetto. Rimuovine fino a 4 e rimetti gli altri nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "fake_news",
+"copie": 1,
+"img": "a01"
+},
+"MC02": {
+"id": "MC02",
+"cls": "MC",
+"it": "Crisi sanitaria",
+"en": "Health Crisis",
+"t": "Vendi fino a 6 {sal} allo Stato per 10{V} ciascuna.",
+"req": [],
+"leg": [
+[
+"MC",
+1,
+3,
+"sal"
+]
+],
+"fx": "vendi_stato:sal",
+"copie": 1,
+"img": "a02"
+},
+"MC03": {
+"id": "MC03",
+"cls": "MC",
+"it": "Programma di istruzione superiore",
+"en": "Higher Education Program",
+"t": "Vendi fino a 6 {ist} allo Stato per 10{V} ciascuna.",
+"req": [],
+"leg": [
+[
+"MC",
+1,
+3,
+"ist"
+]
+],
+"fx": "vendi_stato:ist",
+"copie": 1,
+"img": "a03"
+},
+"MC04": {
+"id": "MC04",
+"cls": "MC",
+"it": "Sussidio all'export",
+"en": "Export Subsidy",
+"t": "Vendi al Mercato Estero. Per ogni transazione che fai ricevi 5{V} dallo Stato.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "sussidio_export",
+"copie": 2,
+"img": "a04"
+},
+"MC06": {
+"id": "MC06",
+"cls": "MC",
+"it": "Contributo alle piccole imprese",
+"en": "Small Business Grant",
+"t": "Costruisci un'Azienda. Lo Stato ne paga il costo.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "costruisci_gratis",
+"copie": 2,
+"img": "a06"
+},
+"MC08": {
+"id": "MC08",
+"cls": "MC",
+"it": "Prestazioni sanitarie",
+"en": "Healthcare Benefits",
+"t": "Acquista {sal} dallo Stato, fino alla tua Popolazione, pagando metà del costo (arrotondato per eccesso).",
+"req": [
+"4B",
+"4C"
+],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "mezzo_prezzo:sal",
+"copie": 1,
+"img": "a08"
+},
+"MC09": {
+"id": "MC09",
+"cls": "MC",
+"it": "Borsa di studio statale",
+"en": "State Scholarship",
+"t": "Acquista {ist} dallo Stato, fino alla tua Popolazione, pagando metà del costo (arrotondato per eccesso).",
+"req": [
+"5B",
+"5C"
+],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "mezzo_prezzo:ist",
+"copie": 1,
+"img": "a09"
+},
+"MC10": {
+"id": "MC10",
+"cls": "MC",
+"it": "Evidenziare i problemi sociali",
+"en": "Highlight Social Issues",
+"t": "Acquista 3 {inf} dallo Stato per 15{V}.",
+"req": [],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "compra_inf3",
+"copie": 1,
+"img": "a10"
+},
+"MC11": {
+"id": "MC11",
+"cls": "MC",
+"it": "Deregolamentazione del lavoro",
+"en": "Labor Market Deregulation",
+"t": "Assegna un numero qualsiasi di Lavoratori disoccupati. Se è in vigore [2C], puoi anche riassegnare un numero qualsiasi di Lavoratori già assegnati ad altre Aziende.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "assegna_libero",
+"copie": 1,
+"img": "a11"
+},
+"MC12": {
+"id": "MC12",
+"cls": "MC",
+"it": "Specializzazione",
+"en": "Specialization",
+"t": "Metti un Lavoratore qualificato della Classe Operaia a tua scelta dalla scorta nell'area Lavoratori Disoccupati. Poi Assegna fino a 3 Lavoratori disoccupati della Classe Operaia alle tue Aziende.",
+"req": [
+"7B",
+"7C"
+],
+"leg": [],
+"fx": "specializzazione_mc",
+"copie": 2,
+"img": "a12"
+},
+"MC14": {
+"id": "MC14",
+"cls": "MC",
+"it": "Opportunità di investimento",
+"en": "Investment Opportunities",
+"t": "Costruisci un'Azienda pagando 8{V} in meno, OPPURE cerca nel mazzo Aziende un'Azienda a tua scelta e costruiscila pagando 8{V} in più. Poi rimescola il mazzo Aziende.",
+"req": [],
+"leg": [],
+"fx": "investimento",
+"copie": 2,
+"img": "a14"
+},
+"MC16": {
+"id": "MC16",
+"cls": "MC",
+"it": "Terra di opportunità",
+"en": "Land of Opportunity",
+"t": "Costruisci un'Azienda usando un Lavoratore qualificato della Classe Media a tua scelta preso dalla scorta.",
+"req": [
+"7B",
+"7C"
+],
+"leg": [],
+"fx": "terra_opportunita",
+"copie": 2,
+"img": "a16"
+},
+"MC18": {
+"id": "MC18",
+"cls": "MC",
+"it": "Analisi del mercato estero",
+"en": "Foreign Market Insight",
+"t": "Rivela la carta Export successiva: puoi sostituire con essa quella attuale. Poi Vendi al Mercato Estero e scarta la carta Export non usata. Puoi eseguire ogni transazione fino a 2 volte.",
+"req": [],
+"leg": [],
+"fx": "analisi_estero",
+"copie": 2,
+"img": "a18"
+},
+"MC20": {
+"id": "MC20",
+"cls": "MC",
+"it": "Sondaggio d'opinione",
+"en": "Public Opinion Polling",
+"t": "Proponi una Legge e rivela 5 cubi Voto dal sacchetto. Puoi poi chiedere una Votazione Immediata senza spendere {inf}: se lo fai usa quei 5 cubi invece di pescarne di nuovi, altrimenti rimettili nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "sondaggio",
+"copie": 2,
+"img": "a20"
+},
+"MC22": {
+"id": "MC22",
+"cls": "MC",
+"it": "Emigrazione",
+"en": "Migration",
+"t": "Se hai almeno 4 Lavoratori disoccupati, rimuovine fino a 2. Ricevi 5{V} per ogni Lavoratore non qualificato e 10{V} per ogni Lavoratore qualificato rimosso così.",
+"req": [],
+"leg": [],
+"fx": "emigrazione",
+"copie": 3,
+"img": "a22"
+},
+"MC25": {
+"id": "MC25",
+"cls": "MC",
+"it": "Impresa in crescita",
+"en": "Growing Business",
+"t": "Costruisci gratis un Magazzino sotto la tua plancia per una risorsa specifica. Poi puoi Costruire un'Azienda: se produce quella risorsa paga 4{V} in meno.",
+"req": [],
+"leg": [],
+"fx": "impresa_crescita",
+"copie": 2,
+"img": "a25"
+},
+"MC27": {
+"id": "MC27",
+"cls": "MC",
+"it": "Consumi personali",
+"en": "Personal Consumption",
+"t": "Acquista un Bene o Servizio da un numero qualsiasi di fonti, fino alla tua Popolazione da ciascuna, OPPURE da una sola fonte fino al doppio della tua Popolazione.",
+"req": [],
+"leg": [],
+"fx": "consumi",
+"copie": 2,
+"img": "a27"
+},
+"MC29": {
+"id": "MC29",
+"cls": "MC",
+"it": "Programma contro la disoccupazione",
+"en": "Unemployment Initiative Program",
+"t": "Assegna fino a 3 Lavoratori disoccupati della Classe Operaia alle tue Aziende. Ricevi 5{V} dallo Stato per ogni Lavoratore assegnato così.",
+"req": [
+"4A",
+"4B"
+],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "iniziativa_occupazione",
+"copie": 1,
+"img": "a29"
+},
+"MC30": {
+"id": "MC30",
+"cls": "MC",
+"it": "Programma di reddito integrativo",
+"en": "Supplemental Income Program",
+"t": "Ricevi 2{V} dallo Stato per ogni tuo Lavoratore occupato in Aziende Pubbliche e della Classe Capitalista. Poi puoi Acquistare Beni & Servizi.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [
+[
+"MC",
+1,
+5,
+"occupati_pc"
+]
+],
+"fx": "reddito_integrativo_mc",
+"copie": 2,
+"img": "a30"
+},
+"MC32": {
+"id": "MC32",
+"cls": "MC",
+"it": "Straordinari nel settore pubblico",
+"en": "Public Sector Overtime",
+"t": "Scegli un'Azienda Pubblica operativa. Lo Stato paga il Salario dei suoi Lavoratori ed esegue una Produzione per quell'Azienda. Poi puoi Acquistare Beni & Servizi dallo Stato del tipo prodotto da quell'Azienda.",
+"req": [],
+"leg": [],
+"fx": "straordinari_pubblici",
+"copie": 1,
+"img": "a32"
+},
+"MC33": {
+"id": "MC33",
+"cls": "MC",
+"it": "Riforma dell'immigrazione",
+"en": "Immigration Reform",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Immigrazione.",
+"req": [],
+"leg": [],
+"fx": "movimento:7",
+"copie": 1,
+"img": "a33"
+},
+"MC34": {
+"id": "MC34",
+"cls": "MC",
+"it": "Nuovo parco divertimenti",
+"en": "New Theme Park",
+"t": "Paga 6{V} per Popolazione. Guadagna 1 Prosperità.",
+"req": [],
+"leg": [],
+"fx": "parco",
+"copie": 1,
+"img": "a34"
+},
+"MC35": {
+"id": "MC35",
+"cls": "MC",
+"it": "La voce dei lavoratori del ceto medio",
+"en": "Voice Of Middle Class Workers",
+"t": "Aggiungi al sacchetto cubi Voto pari a 2 più il numero di Aziende Pubbliche e della Classe Capitalista con tuoi Lavoratori.",
+"req": [],
+"leg": [],
+"fx": "voce_ceto_medio",
+"copie": 1,
+"img": "a35"
+},
+"MC36": {
+"id": "MC36",
+"cls": "MC",
+"it": "Sussidio all'import",
+"en": "Import Subsidy",
+"t": "Puoi Acquistare {cibo} o {lus} dal Mercato Estero, fino alla tua Popolazione, senza pagare Dazi.",
+"req": [
+"6A",
+"6B"
+],
+"leg": [
+[
+"MC",
+1,
+4,
+"importati"
+]
+],
+"fx": "sussidio_import",
+"copie": 2,
+"img": "a36"
+},
+"MC38": {
+"id": "MC38",
+"cls": "MC",
+"it": "Sussidio all'occupazione",
+"en": "Employment Subsidy",
+"t": "Ricevi 5{V} dallo Stato per ognuna delle tue Aziende con un Lavoratore della Classe Operaia. Poi puoi eseguire un Turno Extra in una di quelle Aziende.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"MC",
+1,
+3,
+"aziende_wc"
+]
+],
+"fx": "sussidio_occupazione",
+"copie": 2,
+"img": "a38"
+},
+"CC00": {
+"id": "CC00",
+"cls": "CC",
+"it": "Gruppi di interesse",
+"en": "Interest Groups",
+"t": "Rivela cubi Voto dal sacchetto finché non riveli 3 cubi di altre classi. Sostituiscili con tuoi cubi Voto e rimetti nel sacchetto tutti i cubi rivelati.",
+"req": [],
+"leg": [],
+"fx": "gruppi_interesse",
+"copie": 1,
+"img": "k00"
+},
+"CC01": {
+"id": "CC01",
+"cls": "CC",
+"it": "Fake news",
+"en": "Fake News",
+"t": "Pesca 6 cubi Voto dal sacchetto. Rimuovine fino a 4 e rimetti gli altri nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "fake_news",
+"copie": 1,
+"img": "k01"
+},
+"CC02": {
+"id": "CC02",
+"cls": "CC",
+"it": "Finanziare una campagna politica",
+"en": "Endorse Political Campaign",
+"t": "Paga 15{V} per aggiungere 6 cubi Voto al sacchetto.",
+"req": [],
+"leg": [],
+"fx": "campagna_politica",
+"copie": 1,
+"img": "k02"
+},
+"CC03": {
+"id": "CC03",
+"cls": "CC",
+"it": "Lobby protezionista",
+"en": "Trade Protectionism Lobby",
+"t": "Aggiungi 2 cubi Voto al sacchetto per ogni tua Azienda del settore Agricoltura. Se è in vigore [6A], conta anche le Aziende del settore Lusso.",
+"req": [
+"6A",
+"6B"
+],
+"leg": [],
+"fx": "lobby_protezionista",
+"copie": 1,
+"img": "k03"
+},
+"CC04": {
+"id": "CC04",
+"cls": "CC",
+"it": "Società offshore",
+"en": "Offshore Companies",
+"t": "Sposta metà dei tuoi Introiti nel tuo Capitale (arrotondata per difetto).",
+"req": [],
+"leg": [],
+"fx": "offshore",
+"copie": 2,
+"img": "k04"
+},
+"CC06": {
+"id": "CC06",
+"cls": "CC",
+"it": "Partner estero",
+"en": "Foreign Partner",
+"t": "Esegui un Accordo Commerciale. Poi puoi Vendere {cibo} e/o {lus} al Mercato Estero.",
+"req": [
+"6B",
+"6C"
+],
+"leg": [],
+"fx": "partner_estero",
+"copie": 2,
+"img": "k06"
+},
+"CC08": {
+"id": "CC08",
+"cls": "CC",
+"it": "Crisi alimentare globale",
+"en": "Global Food Crisis",
+"t": "Vendi al Mercato Estero. Puoi anche vendere fino a 4 {cibo} a 15{V} ciascuno.",
+"req": [],
+"leg": [],
+"fx": "crisi_alimentare",
+"copie": 1,
+"img": "k08"
+},
+"CC09": {
+"id": "CC09",
+"cls": "CC",
+"it": "Marchio globale",
+"en": "Global Branding",
+"t": "Vendi al Mercato Estero. Puoi anche vendere fino a 6 {lus} a 10{V} ciascuno.",
+"req": [],
+"leg": [],
+"fx": "marchio_globale",
+"copie": 1,
+"img": "k09"
+},
+"CC10": {
+"id": "CC10",
+"cls": "CC",
+"it": "Appalti truccati",
+"en": "Bid Rigging",
+"t": "Vendi fino a 6 {lus} allo Stato a 10{V} ciascuno. Poi ricevi 1 {inf}.",
+"req": [],
+"leg": [
+[
+"CC",
+1,
+3,
+"lus"
+]
+],
+"fx": "appalti",
+"copie": 1,
+"img": "k10"
+},
+"CC11": {
+"id": "CC11",
+"cls": "CC",
+"it": "Programma di istruzione superiore",
+"en": "Higher Education Program",
+"t": "Vendi fino a 9 {ist} allo Stato per 10{V} ciascuna.",
+"req": [],
+"leg": [
+[
+"CC",
+1,
+3,
+"ist"
+]
+],
+"fx": "vendi_stato9:ist",
+"copie": 1,
+"img": "k11"
+},
+"CC12": {
+"id": "CC12",
+"cls": "CC",
+"it": "Crisi sanitaria",
+"en": "Health Crisis",
+"t": "Vendi fino a 9 {sal} allo Stato per 10{V} ciascuna.",
+"req": [],
+"leg": [
+[
+"CC",
+1,
+3,
+"sal"
+]
+],
+"fx": "vendi_stato9:sal",
+"copie": 1,
+"img": "k12"
+},
+"CC13": {
+"id": "CC13",
+"cls": "CC",
+"it": "Contributi alle imprese",
+"en": "Business Grant",
+"t": "Ricevi 5{V} dallo Stato per ogni Azienda che possiedi.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"CC",
+1,
+3,
+"aziende"
+]
+],
+"fx": "contributi_imprese",
+"copie": 1,
+"img": "k13"
+},
+"CC14": {
+"id": "CC14",
+"cls": "CC",
+"it": "Riforme radicali",
+"en": "Radical Reforms",
+"t": "Proponi una Legge. Puoi mettere il segnalino in qualsiasi sezione (anche non adiacente a quella attuale). Non puoi chiedere una Votazione Immediata per questa Legge.",
+"req": [],
+"leg": [],
+"fx": "riforme_radicali",
+"copie": 1,
+"img": "k14"
+},
+"CC15": {
+"id": "CC15",
+"cls": "CC",
+"it": "Basta tasse!",
+"en": "Taxed Enough Already!",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Tassazione.",
+"req": [],
+"leg": [],
+"fx": "movimento:3",
+"copie": 1,
+"img": "k15"
+},
+"CC16": {
+"id": "CC16",
+"cls": "CC",
+"it": "Conquistare nuovi mercati",
+"en": "Tap Into New Markets",
+"t": "Aggiungi 2 cubi Voto al sacchetto. Poi Proponi una Legge per Commercio Estero.",
+"req": [],
+"leg": [],
+"fx": "movimento:6",
+"copie": 1,
+"img": "k16"
+},
+"CC17": {
+"id": "CC17",
+"cls": "CC",
+"it": "Spingere l'agenda politica",
+"en": "Push Political Agenda",
+"t": "Paga 25{V} per Proporre 2 Leggi.",
+"req": [],
+"leg": [],
+"fx": "due_leggi_25",
+"copie": 1,
+"img": "k17"
+},
+"CC18": {
+"id": "CC18",
+"cls": "CC",
+"it": "Espansione aziendale",
+"en": "Business Expansion",
+"t": "Costruisci 2 Aziende. Poi aggiungi 2 nuove Aziende al Mercato.",
+"req": [],
+"leg": [],
+"fx": "espansione",
+"copie": 2,
+"img": "k18"
+},
+"CC20": {
+"id": "CC20",
+"cls": "CC",
+"it": "Industrializzazione",
+"en": "Industrialization",
+"t": "Costruisci un'Azienda del settore Lusso o Agricoltura pagando metà del costo (arrotondata per eccesso). L'altra metà la paga lo Stato.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"CC",
+1,
+0,
+""
+]
+],
+"fx": "industrializzazione",
+"copie": 1,
+"img": "k20"
+},
+"CC21": {
+"id": "CC21",
+"cls": "CC",
+"it": "Opportunità di investimento",
+"en": "Investment Opportunities",
+"t": "Costruisci un'Azienda pagando 10{V} in meno, OPPURE cerca nel mazzo Aziende un'Azienda a tua scelta e costruiscila pagando 10{V} in più. Poi rimescola il mazzo Aziende.",
+"req": [],
+"leg": [],
+"fx": "investimento10",
+"copie": 2,
+"img": "k21"
+},
+"CC23": {
+"id": "CC23",
+"cls": "CC",
+"it": "Analisi del mercato estero",
+"en": "Foreign Market Insight",
+"t": "Rivela le prossime 2 carte Export. Puoi sceglierne una per sostituire quella attuale e scartare le altre. Poi puoi Vendere al Mercato Estero.",
+"req": [],
+"leg": [],
+"fx": "analisi_estero_cc",
+"copie": 2,
+"img": "k23"
+},
+"CC25": {
+"id": "CC25",
+"cls": "CC",
+"it": "Strategia d'uscita",
+"en": "Exit Strategy",
+"t": "Vendi una tua Azienda non automatizzata al doppio del suo costo.",
+"req": [],
+"leg": [],
+"fx": "strategia_uscita",
+"copie": 2,
+"img": "k25"
+},
+"CC27": {
+"id": "CC27",
+"cls": "CC",
+"it": "Progresso tecnologico",
+"en": "Technological Progress",
+"t": "Paga 20{V} per ottenere 1 {mac}, OPPURE paga 45{V} per ottenerne 2.",
+"req": [],
+"leg": [],
+"fx": "progresso",
+"copie": 3,
+"img": "k27"
+},
+"CC30": {
+"id": "CC30",
+"cls": "CC",
+"it": "Comprare un'isola privata",
+"en": "Buy Private Island",
+"t": "Paga 50{V} dal tuo Capitale allo Stato. Guadagna 7{VP}.",
+"req": [],
+"leg": [],
+"fx": "isola",
+"copie": 1,
+"img": "k30"
+},
+"CC31": {
+"id": "CC31",
+"cls": "CC",
+"it": "Turno extra",
+"en": "Extra Shift",
+"t": "Scegli una tua Azienda non automatizzata. Paga il Salario dei Lavoratori ed esegui una Produzione.",
+"req": [],
+"leg": [],
+"fx": "turno_extra_cc",
+"copie": 2,
+"img": "k31"
+},
+"CC33": {
+"id": "CC33",
+"cls": "CC",
+"it": "Programma contro la disoccupazione",
+"en": "Unemployment Initiative Program",
+"t": "Assegna Lavoratori disoccupati a una tua Azienda non operativa. Ricevi 5{V} dallo Stato per ogni Lavoratore assegnato così.",
+"req": [
+"4A",
+"4B"
+],
+"leg": [
+[
+"CC",
+1,
+0,
+""
+]
+],
+"fx": "iniziativa_occupazione_cc",
+"copie": 2,
+"img": "k33"
+},
+"CC35": {
+"id": "CC35",
+"cls": "CC",
+"it": "Salari competitivi",
+"en": "Competitive Wages",
+"t": "Porta a L3 il Salario di una tua Azienda non operativa. Poi scegli un'Azienda Pubblica operativa della stessa industria con lo stesso numero di Lavoratori e Assegna quei Lavoratori alla tua Azienda.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "salari_competitivi",
+"copie": 2,
+"img": "k35"
+},
+"CC37": {
+"id": "CC37",
+"cls": "CC",
+"it": "Reclutamento estero",
+"en": "Foreign Recruitment",
+"t": "Scegli una tua Azienda non operativa. Spendi 10{V} e Assegna a quell'Azienda Lavoratori adatti presi dalla scorta.",
+"req": [
+"7B",
+"7C"
+],
+"leg": [],
+"fx": "reclutamento_estero",
+"copie": 2,
+"img": "k37"
+},
+"CC39": {
+"id": "CC39",
+"cls": "CC",
+"it": "Sondaggio d'opinione",
+"en": "Public Opinion Polling",
+"t": "Proponi una Legge e rivela 5 cubi Voto dal sacchetto. Puoi poi chiedere una Votazione Immediata senza spendere {inf}: se lo fai usa quei 5 cubi invece di pescarne di nuovi, altrimenti rimettili nel sacchetto.",
+"req": [],
+"leg": [],
+"fx": "sondaggio",
+"copie": 1,
+"img": "k39"
+},
+"ST00": {
+"id": "ST00",
+"cls": "ST",
+"it": "Riforme radicali",
+"en": "Radical Reforms",
+"t": "Proponi una Legge. Puoi mettere il segnalino in qualsiasi sezione (anche non adiacente a quella attuale). Non puoi chiedere una Votazione Immediata per questa Legge.",
+"req": [],
+"leg": [],
+"fx": "riforme_radicali",
+"copie": 1,
+"img": "s00"
+},
+"ST01": {
+"id": "ST01",
+"cls": "ST",
+"it": "Questioni urgenti",
+"en": "Pressing Matters",
+"t": "Proponi una Legge. Puoi chiedere una Votazione Immediata senza spendere {inf}.",
+"req": [],
+"leg": [],
+"fx": "questioni_urgenti",
+"copie": 2,
+"img": "s01"
+},
+"ST03": {
+"id": "ST03",
+"cls": "ST",
+"it": "Stato d'emergenza",
+"en": "Emergency State",
+"t": "Se ci sono almeno 3 Politiche con Leggi proposte, scegli una Politica senza Leggi proposte e sposta il suo segnalino in una sezione adiacente.",
+"req": [],
+"leg": [],
+"fx": "emergenza",
+"copie": 1,
+"img": "s03"
+},
+"ST04": {
+"id": "ST04",
+"cls": "ST",
+"it": "Aumento dell'IVA",
+"en": "Higher VAT",
+"t": "Ogni giocatore paga 15{V} allo Stato. Poi applica -1 Legittimità a 2 classi.",
+"req": [],
+"leg": [],
+"fx": "iva",
+"copie": 2,
+"img": "s04"
+},
+"ST06": {
+"id": "ST06",
+"cls": "ST",
+"it": "Crescita del turismo",
+"en": "Growth in Tourism",
+"t": "Lo Stato, la Classe Media e la Classe Capitalista ricevono 15{V} ciascuno.",
+"req": [],
+"leg": [
+[
+"MC",
+1,
+0,
+""
+],
+[
+"CC",
+1,
+0,
+""
+]
+],
+"fx": "turismo:MC,CC",
+"copie": 1,
+"img": "s06"
+},
+"ST07": {
+"id": "ST07",
+"cls": "ST",
+"it": "Piano di sostegno all'occupazione",
+"en": "Employment Support Scheme",
+"t": "Fornisci 15{V} alla Classe Operaia e alla Classe Media.",
+"req": [],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+],
+[
+"MC",
+1,
+0,
+""
+]
+],
+"fx": "sostegno_occupazione",
+"copie": 1,
+"img": "s07"
+},
+"ST08": {
+"id": "ST08",
+"cls": "ST",
+"it": "Boom edilizio",
+"en": "Construction Boom",
+"t": "Lo Stato, la Classe Operaia e la Classe Capitalista ricevono 15{V} ciascuno.",
+"req": [],
+"leg": [
+[
+"WC",
+1,
+0,
+""
+],
+[
+"CC",
+1,
+0,
+""
+]
+],
+"fx": "turismo:WC,CC",
+"copie": 1,
+"img": "s08"
+},
+"ST09": {
+"id": "ST09",
+"cls": "ST",
+"it": "Sostegno geopolitico",
+"en": "Geopolitical Support",
+"t": "Ricevi denaro in base alla Politica di Commercio Estero attuale: [6A] 15{V}, [6B] 30{V}, [6C] 45{V}.",
+"req": [],
+"leg": [],
+"fx": "geopolitica",
+"copie": 2,
+"img": "s09"
+},
+"ST11": {
+"id": "ST11",
+"cls": "ST",
+"it": "Programma di investimenti esteri",
+"en": "Foreign Investment Program",
+"t": "Spendi 2 {inf} Personale per ricevere 40{V}.",
+"req": [],
+"leg": [],
+"fx": "investimenti_esteri",
+"copie": 2,
+"img": "s11"
+},
+"ST13": {
+"id": "ST13",
+"cls": "ST",
+"it": "Programma di reddito integrativo",
+"en": "Supplemental Income Program",
+"t": "Fornisci a una classe 1{V} per ogni suo Lavoratore occupato. Per ogni 10{V} forniti applica +1 Legittimità a quella classe.",
+"req": [
+"2B",
+"2C"
+],
+"leg": [],
+"fx": "reddito_integrativo_st",
+"copie": 1,
+"img": "s13"
+},
+"ST14": {
+"id": "ST14",
+"cls": "ST",
+"it": "Programma sanitario",
+"en": "Healthcare Program",
+"t": "Fornisci {sal} a una classe, pari alla sua Popolazione. Ricevi un gettone Legittimità per quella classe.",
+"req": [
+"4A",
+"4B"
+],
+"leg": [],
+"fx": "programma:sal",
+"copie": 1,
+"img": "s14"
+},
+"ST15": {
+"id": "ST15",
+"cls": "ST",
+"it": "Programma di alfabetizzazione",
+"en": "Literacy Program",
+"t": "Fornisci {ist} a una classe, pari alla sua Popolazione. Ricevi un gettone Legittimità per quella classe.",
+"req": [
+"5A",
+"5B"
+],
+"leg": [],
+"fx": "programma:ist",
+"copie": 1,
+"img": "s15"
+},
+"ST16": {
+"id": "ST16",
+"cls": "ST",
+"it": "Passo verso la rappresentanza",
+"en": "Step for Representation",
+"t": "Fornisci 1 {inf} Personale e 2 cubi Voto a una classe. Applica +2 Legittimità a quella classe.",
+"req": [],
+"leg": [],
+"fx": "rappresentanza",
+"copie": 2,
+"img": "s16"
+},
+"ST18": {
+"id": "ST18",
+"cls": "ST",
+"it": "Contributi alle imprese",
+"en": "Business Grants",
+"t": "Fornisci 5{V} alla Classe Capitalista per ognuna delle sue Aziende.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [
+[
+"CC",
+1,
+3,
+"aziende"
+]
+],
+"fx": "contributi_st",
+"copie": 1,
+"img": "s18"
+},
+"ST19": {
+"id": "ST19",
+"cls": "ST",
+"it": "Nazionalizzazione",
+"en": "Nationalization",
+"t": "Rimuovi un'Azienda Pubblica non operativa e sostituiscila con un'Azienda non operativa e non automatizzata della Classe Capitalista a tua scelta (spostala nel Settore Pubblico). Poi puoi Assegnarle Lavoratori. Se è in vigore [1B], paga il costo dell'Azienda alla Classe Capitalista.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [],
+"fx": "nazionalizzazione",
+"copie": 1,
+"img": "s19"
+},
+"ST20": {
+"id": "ST20",
+"cls": "ST",
+"it": "Privatizzazione",
+"en": "Privatization",
+"t": "Vendi una tua Azienda operativa alla Classe Capitalista al suo costo (spostala nel Settore Privato). Ricevi un gettone Legittimità per la Classe Capitalista.",
+"req": [
+"1B",
+"1C"
+],
+"leg": [],
+"fx": "privatizzazione",
+"copie": 1,
+"img": "s20"
+},
+"ST21": {
+"id": "ST21",
+"cls": "ST",
+"it": "Risposta immediata",
+"en": "Immediate Response",
+"t": "Scegli un Evento ed esegui la sua Azione due volte (le scelte possono essere diverse la seconda volta).",
+"req": [],
+"leg": [],
+"fx": "risposta_immediata",
+"copie": 2,
+"img": "s21"
+},
+"ST23": {
+"id": "ST23",
+"cls": "ST",
+"it": "Cambio di priorità",
+"en": "Shift Focus",
+"t": "Guarda le prime 2 carte Evento. Puoi scartare senza penalità uno degli Eventi sul tabellone e sostituirlo con una di queste carte. Poi esegui un'Azione Evento.",
+"req": [],
+"leg": [],
+"fx": "cambio_priorita",
+"copie": 2,
+"img": "s23"
+},
+"ST25": {
+"id": "ST25",
+"cls": "ST",
+"it": "Indennità e sussidi",
+"en": "Allowances and Subsidies",
+"t": "Fornisci 20{V} a una classe. Ricevi un gettone Legittimità per quella classe.",
+"req": [],
+"leg": [],
+"fx": "indennita",
+"copie": 2,
+"img": "s25"
+},
+"ST27": {
+"id": "ST27",
+"cls": "ST",
+"it": "Agenda setting",
+"en": "Agenda-Setting",
+"t": "Ricevi 1 {inf} Personale per ogni Politica che corrisponde alla tua Agenda Politica attuale.",
+"req": [],
+"leg": [],
+"fx": "agenda_setting",
+"copie": 2,
+"img": "s27"
+},
+"ST29": {
+"id": "ST29",
+"cls": "ST",
+"it": "Turismo sanitario",
+"en": "Medical Tourism",
+"t": "Vendi fino a 8 {sal} al Mercato Estero al prezzo locale attuale.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [],
+"fx": "turismo_estero:sal",
+"copie": 1,
+"img": "s29"
+},
+"ST30": {
+"id": "ST30",
+"cls": "ST",
+"it": "Studenti stranieri",
+"en": "Foreign Students",
+"t": "Vendi fino a 8 {ist} al Mercato Estero al prezzo locale attuale.",
+"req": [
+"1A",
+"1B"
+],
+"leg": [],
+"fx": "turismo_estero:ist",
+"copie": 1,
+"img": "s30"
+},
+"ST31": {
+"id": "ST31",
+"cls": "ST",
+"it": "Censura",
+"en": "Denial of Free Speech",
+"t": "Prendi fino a 2 {inf} dai Media. Poi scegli fino a 2 altri giocatori: ognuno ti dà 1 {inf} e applichi -1 Legittimità alla sua classe.",
+"req": [],
+"leg": [],
+"fx": "censura",
+"copie": 1,
+"img": "s31"
+},
+"ST32": {
+"id": "ST32",
+"cls": "ST",
+"it": "Straordinari nel settore pubblico",
+"en": "Public Sector Overtime",
+"t": "Scegli una tua Azienda. Paga il Salario dei Lavoratori ed esegui una Produzione per quell'Azienda.",
+"req": [],
+"leg": [],
+"fx": "straordinari_st",
+"copie": 2,
+"img": "s32"
+},
+"ST34": {
+"id": "ST34",
+"cls": "ST",
+"it": "Programma contro la disoccupazione",
+"en": "Unemployment Initiative Program",
+"t": "Assegna Lavoratori disoccupati a una tua Azienda non operativa.",
+"req": [
+"4A",
+"4B"
+],
+"leg": [],
+"fx": "iniziativa_occupazione_st",
+"copie": 1,
+"img": "s34"
+},
+"ST35": {
+"id": "ST35",
+"cls": "ST",
+"it": "Una questione prioritaria",
+"en": "A Matter of High Priority",
+"t": "Guarda le prime 2 carte Evento e, se puoi, mettine una sul tabellone. Poi esegui un'Azione Evento.",
+"req": [],
+"leg": [],
+"fx": "alta_priorita",
+"copie": 2,
+"img": "s35"
+},
+"ST37": {
+"id": "ST37",
+"cls": "ST",
+"it": "Assistenza finanziaria estera",
+"en": "Foreign Financial Assistance",
+"t": "Ricevi 10{V} per ogni Politica che corrisponde alla tua Agenda Politica attuale.",
+"req": [],
+"leg": [],
+"fx": "assistenza_estera",
+"copie": 2,
+"img": "s37"
+},
+"ST39": {
+"id": "ST39",
+"cls": "ST",
+"it": "Allentamento quantitativo",
+"en": "Quantitative Easing",
+"t": "Ricevi 25{V}. Se hai un Prestito ricevi invece 35{V}.",
+"req": [],
+"leg": [],
+"fx": "qe",
+"copie": 1,
+"img": "s39"
+}
+},
+"eventi": [
+{
+"id": "e00",
+"it": "Siccità",
+"en": "Drought",
+"t": "Fornisci {cibo} a una classe pari a metà della sua Popolazione o metà delle sue Aziende operative (arrotondato per eccesso).",
+"fx": "fornisci_ris:cibo:meta",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"WC": "tok",
+"CC": "tok"
+},
+"r2": false
+},
+{
+"id": "e01",
+"it": "Le aziende chiedono internet migliore",
+"en": "Companies Demand Better Internet",
+"t": "Fornisci {lus} a una classe pari a metà delle sue Aziende operative (arrotondato per eccesso).",
+"fx": "fornisci_ris:lus:aziende",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "leg_per:2:item",
+"CC": "leg_per:2:item"
+},
+"r2": false
+},
+{
+"id": "e02",
+"it": "Calo delle nascite",
+"en": "Declining Birth Rate",
+"t": "Fornisci {sal} a una classe pari a metà della sua Popolazione (arrotondato per eccesso).",
+"fx": "fornisci_ris:sal:pop",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "leg:1",
+"MC": "leg:1"
+},
+"r2": false
+},
+{
+"id": "e03",
+"it": "Basso indice di istruzione",
+"en": "Low Education Index",
+"t": "Fornisci {ist} a una classe pari a metà della sua Popolazione (arrotondato per eccesso).",
+"fx": "fornisci_ris:ist:pop",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "leg:1",
+"MC": "leg:1"
+},
+"r2": false
+},
+{
+"id": "e04",
+"it": "Sciopero al porto",
+"en": "Strike at the Port",
+"t": "Fornisci 2 {inf} dei Media a una classe.",
+"fx": "fornisci_media2",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"WC": "tok",
+"CC": "tok"
+},
+"r2": false
+},
+{
+"id": "e05",
+"it": "Industrie locali in crisi",
+"en": "Local Industries in Turmoil",
+"t": "Fornisci a una classe 5{V} per ogni Azienda operativa che possiede.",
+"fx": "fornisci_soldi:aziende5",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "tok_per:20:soldi",
+"CC": "vp_per:15:soldi"
+},
+"r2": false
+},
+{
+"id": "e06",
+"it": "Richiesta di riforma delle pensioni",
+"en": "Demand for Pension Reform",
+"t": "Fornisci {V} a una classe pari a 5 volte la sua Popolazione.",
+"fx": "fornisci_soldi:pop5",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "vp_per:15:soldi",
+"MC": "tok_per:20:soldi"
+},
+"r2": false
+},
+{
+"id": "e07",
+"it": "Analfabetismo tecnologico",
+"en": "Technological Illiteracy",
+"t": "Fornisci {lus} e {ist} a una classe, in qualsiasi combinazione, pari in totale a metà della sua Popolazione o metà delle sue Aziende operative (arrotondato per eccesso, almeno 1 di ciascuno).",
+"fx": "fornisci_due:lus:ist:meta",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"WC": "leg_per:2:item",
+"CC": "leg_per:2:item"
+},
+"r2": false
+},
+{
+"id": "e08",
+"it": "Terremoto",
+"en": "Earthquake",
+"t": "Fornisci {cibo} e {sal} a una classe, in qualsiasi combinazione, pari in totale a metà della sua Popolazione (arrotondato per eccesso, almeno 1 di ciascuno).",
+"fx": "fornisci_due:cibo:sal:pop",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "leg_per:2:item",
+"MC": "leg_per:2:item"
+},
+"r2": false
+},
+{
+"id": "e09",
+"it": "Richiesta di un welfare migliore",
+"en": "Demand for Higher Welfare Standards",
+"t": "Fornisci {sal} e {ist} a una classe, in qualsiasi combinazione, pari in totale a metà della sua Popolazione (arrotondato per eccesso, almeno 1 di ciascuno).",
+"fx": "fornisci_due:sal:ist:pop",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "leg:1",
+"MC": "leg:1"
+},
+"r2": false
+},
+{
+"id": "e10",
+"it": "Serve un'iniziativa per la sostenibilità",
+"en": "Need for Sustainability Initiative",
+"t": "Scegli 2 classi. Fornisci 25{V} a ciascuna.",
+"fx": "sostenibilita",
+"pen": "2di3",
+"sc": {
+"WC": "tok",
+"MC": "tok",
+"CC": "tok"
+},
+"r2": false
+},
+{
+"id": "e11",
+"it": "Scandalo politico",
+"en": "Political Scandal",
+"t": "Spendi 25{V} e fornisci fino a 3 {inf} dei Media alle classi, in qualsiasi combinazione.",
+"fx": "scandalo",
+"pen": "2di3",
+"sc": {
+"WC": "leg_per:1:inf",
+"MC": "leg_per:1:inf",
+"CC": "leg_per:1:inf"
+},
+"r2": false
+},
+{
+"id": "e12",
+"it": "Serve un pacchetto di stimolo",
+"en": "Need for Stimulus Package",
+"t": "Scegli: fornisci 10{V} oppure 15{V} a ogni classe.",
+"fx": "stimolo",
+"pen": "2di3",
+"sc": {
+"10": "vp:3",
+"15": "leg_tutte:1"
+},
+"r2": false
+},
+{
+"id": "e13",
+"it": "Un'industria nascente chiede aiuto",
+"en": "Infant Industry Requires Help",
+"t": "Paga il costo e costruisci per un'altra classe un'Azienda che costa 15{V} o più.",
+"fx": "industria_nascente",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "tok",
+"CC": "tok"
+},
+"r2": false
+},
+{
+"id": "e14",
+"it": "Infrastrutture pubbliche obsolete",
+"en": "Outdated Public Sector Infrastructure",
+"t": "(SOLO ROUND 2-5) Acquista {lus} dagli altri giocatori, in qualsiasi combinazione, fino al numero di Aziende Pubbliche.",
+"fx": "compra_da:lus",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "leg_per:3:item",
+"CC": "leg_per:3:item"
+},
+"r2": true
+},
+{
+"id": "e15",
+"it": "Pandemia",
+"en": "Pandemic",
+"t": "(SOLO ROUND 2-5) Acquista {sal} dagli altri giocatori, in qualsiasi combinazione, fino al numero di Aziende Pubbliche.",
+"fx": "compra_da:sal",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "leg_per:3:item",
+"CC": "leg_per:3:item"
+},
+"r2": true
+},
+{
+"id": "e16",
+"it": "Università in fondo alle classifiche",
+"en": "Low University Ratings",
+"t": "(SOLO ROUND 2-5) Acquista {ist} dagli altri giocatori, in qualsiasi combinazione, fino al numero di Aziende Pubbliche.",
+"fx": "compra_da:ist",
+"pen": [
+[
+"MC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"MC": "leg_per:3:item",
+"CC": "leg_per:3:item"
+},
+"r2": true
+},
+{
+"id": "e17",
+"it": "Polarizzazione politica",
+"en": "Political Polarization",
+"t": "Spendi 30{V} e fornisci 4 cubi Voto alle classi in qualsiasi combinazione.",
+"fx": "polarizzazione",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"WC": "leg_per:2:cubi",
+"CC": "leg_per:2:cubi"
+},
+"r2": false
+},
+{
+"id": "e18",
+"it": "Disordini civili",
+"en": "Civil Unrest",
+"t": "Proponi una Legge scelta da un altro giocatore.",
+"fx": "disordini",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"CC",
+-1
+]
+],
+"sc": {
+"WC": "leg:2",
+"CC": "leg:2"
+},
+"r2": false
+},
+{
+"id": "e19",
+"it": "Richiesta della tredicesima",
+"en": "Demand for Thirteen Month Pay",
+"t": "Fornisci a una classe 5{V} per ognuno dei suoi Lavoratori impiegati nel Settore Pubblico.",
+"fx": "fornisci_soldi:pubblici5",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "tok_per:25:soldi",
+"MC": "leg_per:15:soldi"
+},
+"r2": false
+},
+{
+"id": "e20",
+"it": "Rappresentanza iniqua",
+"en": "Unfair Representation",
+"t": "Fornisci 1 {inf} Personale e 2 cubi Voto a una classe.",
+"fx": "rappresentanza_ev",
+"pen": "2di3",
+"sc": {
+"WC": "leg:1",
+"MC": "leg:1",
+"CC": "leg:1"
+},
+"r2": false
+},
+{
+"id": "e21",
+"it": "Paura della deflazione",
+"en": "Fear of Deflation",
+"t": "Spendi 15{V}, 30{V} o 45{V}.",
+"fx": "deflazione",
+"pen": "2di3",
+"sc": {
+"spendi": "vp_per:15:soldi:2"
+},
+"r2": false
+},
+{
+"id": "e22",
+"it": "Guerra ai confini",
+"en": "Neighbors at War",
+"t": "Spendi fino a 6 {sal}.",
+"fx": "spendi_ris:sal",
+"pen": "2di3",
+"sc": {
+"spendi": "vp_per:1:item"
+},
+"r2": false
+},
+{
+"id": "e23",
+"it": "Paesi in via di sviluppo in difficoltà",
+"en": "Developing Countries in Need",
+"t": "Spendi fino a 6 {ist}.",
+"fx": "spendi_ris:ist",
+"pen": "2di3",
+"sc": {
+"spendi": "vp_per:1:item"
+},
+"r2": false
+},
+{
+"id": "e24",
+"it": "Crisi delle catene di approvvigionamento",
+"en": "Global Supply Chain Crisis",
+"t": "Fornisci {cibo} e {lus} a una classe, in qualsiasi combinazione, pari in totale a metà della sua Popolazione (arrotondato per eccesso, almeno 1 di ciascuno).",
+"fx": "fornisci_due:cibo:lus:pop",
+"pen": [
+[
+"WC",
+-1
+],
+[
+"MC",
+-1
+]
+],
+"sc": {
+"WC": "leg_per:2:item",
+"MC": "vp_per:1:item"
+},
+"r2": false
+}
+],
+"export": [
+{
+"cibo": [
+[
+3,
+25
+],
+[
+7,
+55
+]
+],
+"lus": [
+[
+4,
+25
+],
+[
+8,
+45
+]
+],
+"sal": [
+[
+2,
+10
+],
+[
+6,
+35
+]
+],
+"ist": [
+[
+3,
+20
+],
+[
+5,
+35
+]
+]
+},
+{
+"cibo": [
+[
+3,
+25
+],
+[
+6,
+50
+]
+],
+"lus": [
+[
+3,
+20
+],
+[
+7,
+50
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+7,
+40
+]
+],
+"ist": [
+[
+2,
+15
+],
+[
+7,
+55
+]
+]
+},
+{
+"cibo": [
+[
+2,
+20
+],
+[
+6,
+55
+]
+],
+"lus": [
+[
+4,
+30
+],
+[
+8,
+55
+]
+],
+"sal": [
+[
+3,
+25
+],
+[
+5,
+40
+]
+],
+"ist": [
+[
+3,
+15
+],
+[
+7,
+35
+]
+]
+},
+{
+"cibo": [
+[
+2,
+15
+],
+[
+6,
+50
+]
+],
+"lus": [
+[
+3,
+15
+],
+[
+7,
+35
+]
+],
+"sal": [
+[
+4,
+30
+],
+[
+7,
+50
+]
+],
+"ist": [
+[
+3,
+20
+],
+[
+5,
+35
+]
+]
+},
+{
+"cibo": [
+[
+3,
+30
+],
+[
+5,
+50
+]
+],
+"lus": [
+[
+3,
+25
+],
+[
+7,
+55
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+6,
+50
+]
+],
+"ist": [
+[
+3,
+20
+],
+[
+7,
+50
+]
+]
+},
+{
+"cibo": [
+[
+3,
+30
+],
+[
+7,
+70
+]
+],
+"lus": [
+[
+4,
+30
+],
+[
+6,
+40
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+5,
+35
+]
+],
+"ist": [
+[
+2,
+15
+],
+[
+6,
+35
+]
+]
+},
+{
+"cibo": [
+[
+3,
+35
+],
+[
+7,
+75
+]
+],
+"lus": [
+[
+2,
+10
+],
+[
+6,
+35
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+5,
+35
+]
+],
+"ist": [
+[
+4,
+25
+],
+[
+7,
+40
+]
+]
+},
+{
+"cibo": [
+[
+3,
+35
+],
+[
+7,
+80
+]
+],
+"lus": [
+[
+3,
+15
+],
+[
+5,
+25
+]
+],
+"sal": [
+[
+4,
+20
+],
+[
+8,
+40
+]
+],
+"ist": [
+[
+2,
+15
+],
+[
+6,
+45
+]
+]
+},
+{
+"cibo": [
+[
+4,
+40
+],
+[
+7,
+70
+]
+],
+"lus": [
+[
+3,
+25
+],
+[
+6,
+50
+]
+],
+"sal": [
+[
+2,
+15
+],
+[
+7,
+50
+]
+],
+"ist": [
+[
+3,
+20
+],
+[
+5,
+30
+]
+]
+},
+{
+"cibo": [
+[
+4,
+45
+],
+[
+8,
+85
+]
+],
+"lus": [
+[
+2,
+15
+],
+[
+6,
+40
+]
+],
+"sal": [
+[
+3,
+15
+],
+[
+5,
+25
+]
+],
+"ist": [
+[
+3,
+15
+],
+[
+7,
+35
+]
+]
+},
+{
+"cibo": [
+[
+4,
+50
+],
+[
+8,
+95
+]
+],
+"lus": [
+[
+3,
+20
+],
+[
+5,
+30
+]
+],
+"sal": [
+[
+3,
+15
+],
+[
+7,
+35
+]
+],
+"ist": [
+[
+2,
+15
+],
+[
+6,
+40
+]
+]
+},
+{
+"cibo": [
+[
+4,
+45
+],
+[
+7,
+80
+]
+],
+"lus": [
+[
+3,
+20
+],
+[
+5,
+30
+]
+],
+"sal": [
+[
+2,
+15
+],
+[
+6,
+40
+]
+],
+"ist": [
+[
+3,
+20
+],
+[
+7,
+50
+]
+]
+},
+{
+"cibo": [
+[
+2,
+25
+],
+[
+6,
+65
+]
+],
+"lus": [
+[
+4,
+20
+],
+[
+7,
+35
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+7,
+40
+]
+],
+"ist": [
+[
+3,
+25
+],
+[
+6,
+45
+]
+]
+},
+{
+"cibo": [
+[
+2,
+15
+],
+[
+6,
+45
+]
+],
+"lus": [
+[
+3,
+20
+],
+[
+7,
+50
+]
+],
+"sal": [
+[
+3,
+20
+],
+[
+5,
+30
+]
+],
+"ist": [
+[
+4,
+25
+],
+[
+8,
+45
+]
+]
+},
+{
+"cibo": [
+[
+2,
+15
+],
+[
+6,
+50
+]
+],
+"lus": [
+[
+3,
+25
+],
+[
+5,
+40
+]
+],
+"sal": [
+[
+4,
+25
+],
+[
+8,
+45
+]
+],
+"ist": [
+[
+3,
+15
+],
+[
+7,
+35
+]
+]
+},
+{
+"cibo": [
+[
+3,
+30
+],
+[
+5,
+50
+]
+],
+"lus": [
+[
+2,
+10
+],
+[
+6,
+35
+]
+],
+"sal": [
+[
+3,
+25
+],
+[
+7,
+55
+]
+],
+"ist": [
+[
+4,
+25
+],
+[
+8,
+45
+]
+]
+}
+],
+"accordi": [
+{
+"cibo": 6,
+"lus": 0,
+"costo": 40,
+"dazio": [
+12,
+6,
+0
+]
+},
+{
+"cibo": 6,
+"lus": 0,
+"costo": 40,
+"dazio": [
+12,
+6,
+0
+]
+},
+{
+"cibo": 7,
+"lus": 0,
+"costo": 50,
+"dazio": [
+14,
+7,
+0
+]
+},
+{
+"cibo": 7,
+"lus": 0,
+"costo": 50,
+"dazio": [
+14,
+7,
+0
+]
+},
+{
+"cibo": 8,
+"lus": 0,
+"costo": 55,
+"dazio": [
+16,
+8,
+0
+]
+},
+{
+"cibo": 8,
+"lus": 0,
+"costo": 55,
+"dazio": [
+16,
+8,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 8,
+"costo": 30,
+"dazio": [
+16,
+8,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 8,
+"costo": 30,
+"dazio": [
+16,
+8,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 10,
+"costo": 40,
+"dazio": [
+20,
+10,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 10,
+"costo": 40,
+"dazio": [
+20,
+10,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 12,
+"costo": 50,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 0,
+"lus": 12,
+"costo": 50,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 4,
+"lus": 8,
+"costo": 60,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 4,
+"lus": 8,
+"costo": 60,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 5,
+"lus": 6,
+"costo": 60,
+"dazio": [
+22,
+11,
+0
+]
+},
+{
+"cibo": 5,
+"lus": 6,
+"costo": 60,
+"dazio": [
+22,
+11,
+0
+]
+},
+{
+"cibo": 7,
+"lus": 5,
+"costo": 70,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 7,
+"lus": 5,
+"costo": 70,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 8,
+"lus": 4,
+"costo": 75,
+"dazio": [
+24,
+12,
+0
+]
+},
+{
+"cibo": 8,
+"lus": 4,
+"costo": 75,
+"dazio": [
+24,
+12,
+0
+]
+}
+],
+"agende": [
+[
+"C",
+"B",
+"A",
+"B",
+"C"
+],
+[
+"B",
+"C",
+"A",
+"B",
+"A"
+],
+[
+"C",
+"B",
+"B",
+"A",
+"B"
+],
+[
+"B",
+"C",
+"B",
+"A",
+"B"
+],
+[
+"C",
+"A",
+"A",
+"C",
+"B"
+],
+[
+"A",
+"B",
+"C",
+"B",
+"C"
+],
+[
+"B",
+"A",
+"C",
+"C",
+"A"
+],
+[
+"C",
+"B",
+"B",
+"B",
+"A"
+],
+[
+"A",
+"C",
+"B",
+"C",
+"A"
+],
+[
+"B",
+"A",
+"C",
+"A",
+"C"
+]
+],
+"immigrazione": [
+[
+"u",
+"ist"
+],
+[
+"sal",
+"u"
+],
+[
+"ist",
+"u"
+],
+[
+"u",
+"lus"
+],
+[
+"lus",
+"u"
+],
+[
+"u",
+"ist"
+],
+[
+"u",
+"ist"
+],
+[
+"ist",
+"u"
+],
+[
+"u",
+"lus"
+],
+[
+"lus",
+"u"
+],
+[
+"u",
+"lus"
+],
+[
+"u",
+"med"
+],
+[
+"sal",
+"u"
+],
+[
+"u",
+"sal"
+],
+[
+"u",
+"sal"
+],
+[
+"u",
+"sal"
+],
+[
+"agr",
+"u"
+],
+[
+"u",
+"med"
+],
+[
+"u",
+"med"
+],
+[
+"u",
+"agr"
+],
+[
+"med",
+"u"
+],
+[
+"med",
+"u"
+],
+[
+"u",
+"agr"
+],
+[
+"agr",
+"u"
+],
+[
+"u",
+"agr"
+]
+]
+}
