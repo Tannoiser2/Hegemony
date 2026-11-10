@@ -57,6 +57,12 @@ var diario: RichTextLabel
 var diario_box: PanelContainer
 var banner: PanelContainer
 var zoom_layer: Control
+var tavolo3d: Tavolo3D
+var vista3d: SubViewportContainer
+var pan_sx: Control
+var pan_sc: Control
+var pan_mano: Control
+var info3d: PanelContainer
 
 func _ready() -> void:
 	ui = CanvasLayer.new()
@@ -540,10 +546,22 @@ func _apri_partita() -> void:
 	f.color = C_FONDO
 	f.set_anchors_preset(Control.PRESET_FULL_RECT)
 	schermo.add_child(f)
-	var img := immagine("res://assets/ui/trama.webp", 100, 100, TextureRect.STRETCH_TILE)
-	img.set_anchors_preset(Control.PRESET_FULL_RECT)
-	img.modulate = Color(1, 1, 1, 0.5)
-	schermo.add_child(img)
+	# tavolo 3D con tabellone, plance e pedine
+	vista3d = SubViewportContainer.new()
+	vista3d.position = Vector2(0, 46)
+	vista3d.size = Vector2(1212, 854)
+	vista3d.stretch = true
+	vista3d.mouse_filter = Control.MOUSE_FILTER_STOP
+	schermo.add_child(vista3d)
+	var sv := SubViewport.new()
+	sv.own_world_3d = true
+	sv.msaa_3d = Viewport.MSAA_2X
+	sv.handle_input_locally = false
+	vista3d.add_child(sv)
+	tavolo3d = Tavolo3D.new()
+	sv.add_child(tavolo3d)
+	tavolo3d.dettagli.connect(_dettagli_3d)
+	vista3d.gui_input.connect(func(ev): tavolo3d.gestisci(ev))
 	_costruisci_hud()
 	_aggiorna_tutto()
 
@@ -570,6 +588,10 @@ func _costruisci_hud() -> void:
 	top_info = etichetta("", F_BOLD, 15, C_TESTO)
 	top_info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	th.add_child(top_info)
+	th.add_child(bottone("VISTA", _cambia_vista, Color("#3a424d"), 13))
+	th.add_child(bottone("PANNELLI", func(): pan_sx.visible = not pan_sx.visible, Color("#3a424d"), 13))
+	th.add_child(bottone("ELENCO", func(): pan_sc.visible = not pan_sc.visible, Color("#3a424d"), 13))
+	th.add_child(bottone("MANO", func(): pan_mano.visible = not pan_mano.visible, Color("#3a424d"), 13))
 	th.add_child(bottone("DIARIO", _apri_diario, Color("#3a424d"), 13))
 	th.add_child(bottone("REGOLE", _menu_regole, Color("#3a424d"), 13))
 	th.add_child(bottone("VELOCITÀ IA", _cambia_velocita, Color("#3a424d"), 13))
@@ -580,6 +602,11 @@ func _costruisci_hud() -> void:
 	sx.size = Vector2(398, 842)
 	sx.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	schermo.add_child(sx)
+	pan_sx = sx
+	sx.visible = false
+	var fondo_sx := StyleBoxFlat.new()
+	fondo_sx.bg_color = Color(0.1, 0.11, 0.13, 0.9)
+	sx.add_theme_stylebox_override("panel", fondo_sx)
 	var vs := VBoxContainer.new()
 	vs.custom_minimum_size = Vector2(388, 0)
 	vs.add_theme_constant_override("separation", 8)
@@ -595,20 +622,26 @@ func _costruisci_hud() -> void:
 	sc.size = Vector2(800, 588)
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	schermo.add_child(sc)
+	pan_sc = sc
+	sc.visible = false
+	var fondo_sc := StyleBoxFlat.new()
+	fondo_sc.bg_color = Color(0.1, 0.11, 0.13, 0.94)
+	sc.add_theme_stylebox_override("panel", fondo_sc)
 	tavolo = VBoxContainer.new()
 	tavolo.custom_minimum_size = Vector2(788, 0)
 	tavolo.add_theme_constant_override("separation", 6)
 	sc.add_child(tavolo)
-	var mano_p := pannello(Color("#262b32"), Color(1, 1, 1, 0.06), 1)
-	mano_p.position = Vector2(410, 646)
-	mano_p.size = Vector2(800, 248)
+	var mano_p := pannello(Color(0.15, 0.17, 0.2, 0.92), Color(1, 1, 1, 0.06), 1)
+	mano_p.position = Vector2(6, 698)
+	mano_p.size = Vector2(1204, 196)
 	schermo.add_child(mano_p)
+	pan_mano = mano_p
 	var mv := VBoxContainer.new()
 	mano_p.add_child(mv)
 	mano_titolo = etichetta("", F_NERO, 13, C_ORO)
 	mv.add_child(mano_titolo)
 	var ms := ScrollContainer.new()
-	ms.custom_minimum_size = Vector2(780, 214)
+	ms.custom_minimum_size = Vector2(1184, 172)
 	ms.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	mv.add_child(ms)
 	mano_box = HBoxContainer.new()
@@ -661,6 +694,77 @@ func _costruisci_hud() -> void:
 	zoom_layer.set_anchors_preset(Control.PRESET_FULL_RECT)
 	zoom_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	schermo.add_child(zoom_layer)
+
+func _cambia_vista() -> void:
+	var v: int = (int(get_meta("vista", 0)) + 1) % 3
+	set_meta("vista", v)
+	match v:
+		0:
+			tavolo3d.reimposta_camera()
+		1:
+			tavolo3d.vista("tabellone")
+		2:
+			tavolo3d.vista("plance")
+
+## Clic su una carta o una plancia del tavolo 3D: dettagli in italiano.
+func _dettagli_3d(chiave: String) -> void:
+	var parti := chiave.split(":")
+	var t := ""
+	match parti[0]:
+		"azienda", "azienda_m":
+			t = _tooltip_azienda(parti[1]) if m.s["aziende"].has(parti[1]) else _scheda_azienda(parti[1])
+		"evento":
+			var e := Dati.evento(parti[1])
+			t = "%s\n%s" % [e["it"].to_upper(), m._testo_semplice(e["t"])]
+		"export":
+			var x: Dictionary = Dati.d()["export"][int(m.s["export"])]
+			var righe := []
+			for r in Dati.RISORSE:
+				righe.append("%s: %d per %d, oppure %d per %d" % [Dati.NOMI_RIS[r], int(x[r][0][0]), int(x[r][0][1]), int(x[r][1][0]), int(x[r][1][1])])
+			t = "CARTA EXPORT (vendite al Mercato Estero)\n" + "\n".join(righe)
+		"accordo":
+			var a: Dictionary = Dati.d()["accordi"][int(parti[1])]
+			t = "ACCORDO COMMERCIALE: %d Cibo, %d Lusso per %d (dazio %d)" % [int(a["cibo"]), int(a["lus"]), int(a["costo"]), int(a["dazio"][m.polx(5)])]
+		"agenda":
+			t = "AGENDA POLITICA DELLO STATO: %d corrispondenze con le Politiche attuali (1 PV ciascuna nel Punteggio)." % m.agenda_corrispondenze()
+		"disoccupati":
+			t = "LAVORATORI DISOCCUPATI: %d della Classe Operaia, %d della Classe Media." % [m.disoccupati(0).size(), m.disoccupati(1).size()]
+		"plancia":
+			t = _testo_plancia(int(parti[1]))
+	if t != "":
+		_mostra_info(t)
+
+func _scheda_azienda(aid: String) -> String:
+	var d := Dati.az(aid)
+	var t := "%s (%s) - costo %d\nProduce %d %s" % [d["n"], Dati.NOMI_IND[d["ind"]], int(d["costo"]), int(d["prod"]), Dati.NOMI_RIS[Dati.RIS_IND[d["ind"]]]]
+	if not d["auto"] and int(d["sal"][0]) > 0:
+		t += "\nSalari L1/L2/L3: %d/%d/%d" % [int(d["sal"][0]), int(d["sal"][1]), int(d["sal"][2])]
+	return t
+
+func _testo_plancia(c: int) -> String:
+	var g := m.G(c)
+	var t := "%s - %d PV\nDenaro %d, Influenza %d, Prestiti %d" % [m.nome(c).to_upper(), int(g["vp"]), m.soldi(c), int(g["inf"]), int(g["prestiti"])]
+	if c in [0, 1]:
+		t += "\nPopolazione %d (%d lavoratori), Prosperità %d" % [m.popolazione(c), m.lavoratori(c).size(), int(g["prosp"])]
+	if c == 2:
+		t += "\nIntroiti %d, Capitale %d, livello di Ricchezza %d" % [int(g["rev"]), int(g["cap"]), int(g["ricchezza"])]
+	if c == 3:
+		t += "\nLegittimità: Operai %d, Ceto medio %d, Capitalisti %d" % [int(g["leg"][0]), int(g["leg"][1]), int(g["leg"][2])]
+	return t
+
+func _mostra_info(t: String) -> void:
+	if info3d != null and is_instance_valid(info3d):
+		info3d.queue_free()
+	info3d = pannello(Color(0.08, 0.09, 0.11, 0.95), C_ORO, 2)
+	info3d.position = Vector2(330, 60)
+	info3d.custom_minimum_size = Vector2(560, 0)
+	var v := VBoxContainer.new()
+	info3d.add_child(v)
+	var l := testo_lungo(t, 16)
+	l.custom_minimum_size = Vector2(540, 0)
+	v.add_child(l)
+	v.add_child(bottone("CHIUDI", func(): info3d.queue_free(), Color("#3a424d"), 13))
+	schermo.add_child(info3d)
 
 func _apri_diario() -> void:
 	diario_box.visible = not diario_box.visible
@@ -833,6 +937,8 @@ func _aggiorna_tutto() -> void:
 	_aggiorna_eventi()
 	_aggiorna_mercato()
 	_aggiorna_tavolo()
+	if tavolo3d != null:
+		tavolo3d.aggiorna(m)
 	_aggiorna_giocatori()
 	_aggiorna_mano()
 	if diario_box.visible:
@@ -1358,7 +1464,7 @@ func _aggiorna_mano() -> void:
 			if v is Array and v.size() > 1 and str(v[0]) == "eff":
 				giocabili[str(v[1])] = k
 	for cid in g["mano"]:
-		var carta := _carta_azione(cid, 108, giocabili.has(cid))
+		var carta := _carta_azione(cid, 92, giocabili.has(cid))
 		carta.gui_input.connect(_clic_carta.bind(cid, giocabili.get(cid, -1)))
 		mano_box.add_child(carta)
 

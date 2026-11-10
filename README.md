@@ -25,11 +25,25 @@ Si gioca qui: https://tannoiser2.github.io/Hegemony/
   Capitalista e Stato; i posti vuoti li guida l'IA) e **salvataggio** automatico sul dispositivo e su
   Firebase (`hegemony/salvataggi`).
 
+## Tavolo 3D
+
+Il centro dello schermo è il tavolo in 3D: il **tabellone originale** con il segnapunti, i segnalini delle
+Politiche e delle Leggi proposte, round e moltiplicatore, eventi, carta Export, accordi commerciali, sacchetto
+dei voti, servizi pubblici e tesoro; le **plance originali** delle quattro classi con popolazione, prosperità,
+denaro, magazzini e prezzi, ricchezza, legittimità e gettoni; le aziende sugli spazi del settore privato e
+pubblico con i **lavoratori 3D** (modello del modulo TTS, colore dell'abilità e base del colore della classe;
+sdraiati quando sono impegnati). Le carte sul tavolo sono ridisegnate in italiano da `tools/carte_3d.py`.
+
+Comandi: mouse (sinistro trascina, destro ruota, rotella zoom) e tocco su iPad (un dito trascina, due dita
+pizzicano e ruotano). Un clic o un tocco su una carta o una plancia mostra i dettagli. In alto: VISTA cambia
+inquadratura, PANNELLI mostra le schede di testo, ELENCO la vista a elenco, MANO nasconde la mano.
+
 ## Struttura
 
 - `scripts/motore.gd` – le regole: stato in un dizionario, decisioni numerate (stessa sequenza = stessa
   partita su tutti i dispositivi).
 - `scripts/dati.gd` – tabelle delle regole e accesso a `dati/carte.json`.
+- `scripts/tavolo3d.gd` – tavolo 3D; `dati/tavolo.json` – coordinate dei tracciati del tabellone (dai punti di aggancio del modulo TTS).
 - `scripts/ia.gd` – intelligenza artificiale; `scripts/main.gd` – menu e interfaccia; `scripts/rete.gd` – Firebase.
 - `tools/controlla_glifi.py` – controlla che ogni carattere dei testi esista nei font.
 - `firebase/database.rules.json` – regole del database (radice `hegemony`, da unire a quelle del progetto condiviso).
@@ -41,6 +55,7 @@ godot --headless --path . -s res://tests/sim.gd -- 10            # 10 partite tu
 godot --headless --path . -s res://tests/sim.gd -- 300 casuale   # 300 partite a scelte casuali (robustezza)
 godot --headless --path . -s res://tests/ui_auto.gd              # partita intera dall'interfaccia
 xvfb-run godot --path . -s res://tests/foto.gd -- partita 60     # screenshot
+xvfb-run godot --path . -s res://tests/tocco.gd                  # gesti a tocco sul tavolo 3D
 ```
 
 ## Pubblicazione

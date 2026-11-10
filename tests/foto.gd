@@ -24,6 +24,13 @@ func _initialize():
 		main.velocita = 1.0
 		main._aggiorna_tutto()
 		main.eventi_visti = main.m.s["eventi"].size()
+		if args.size() > 3 and main.tavolo3d != null:
+			var v := args[3].split(",")
+			main.tavolo3d.bersaglio = Vector3(float(v[0]), 0, float(v[1]))
+			main.tavolo3d.dist = float(v[2])
+			main.tavolo3d.pitch = deg_to_rad(float(v[3]))
+			main.tavolo3d._aggiorna_camera()
+			main.pan_mano.visible = false
 	elif modo == "regole":
 		main._menu_regole()
 	for i in 20:
