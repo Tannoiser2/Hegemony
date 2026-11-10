@@ -29,14 +29,18 @@ Si gioca qui: https://tannoiser2.github.io/Hegemony/
 
 Il centro dello schermo è il tavolo in 3D: il **tabellone originale** con il segnapunti, i segnalini delle
 Politiche e delle Leggi proposte, round e moltiplicatore, eventi, carta Export, accordi commerciali, sacchetto
-dei voti, servizi pubblici e tesoro; le **plance originali** delle quattro classi con popolazione, prosperità,
-denaro, magazzini e prezzi, ricchezza, legittimità e gettoni; le aziende sugli spazi del settore privato e
+dei voti, servizi pubblici e tesoro; le aziende sugli spazi del settore privato e
 pubblico con i **lavoratori 3D** (modello del modulo TTS, colore dell'abilità e base del colore della classe;
 sdraiati quando sono impegnati). Le carte sul tavolo sono ridisegnate in italiano da `tools/carte_3d.py`.
 
+Le **plance originali** delle quattro classi stanno nella colonna di destra, a schede (Operai, Ceto medio,
+Capitalisti, Stato, con i PV): sopra l'immagine della plancia compaiono popolazione, prosperità, denaro,
+magazzini e prezzi, ricchezza, legittimità e gettoni; un clic la ingrandisce. Sotto ci sono il riepilogo e le
+carte del mercato (o l'agenda dello Stato), anch'esse ingrandibili.
+
 Comandi: mouse (sinistro trascina, destro ruota, rotella zoom) e tocco su iPad (un dito trascina, due dita
-pizzicano e ruotano). Un clic o un tocco su una carta o una plancia mostra i dettagli. In alto: VISTA cambia
-inquadratura, PANNELLI mostra le schede di testo, ELENCO la vista a elenco, MANO nasconde la mano.
+pizzicano e ruotano). Un clic o un tocco su una carta o un'azienda mostra i dettagli. In alto: VISTA cambia
+inquadratura, PANNELLI mostra le schede di testo, ELENCO la vista a elenco, MANO nasconde la mano e allarga il tavolo.
 
 ## Struttura
 

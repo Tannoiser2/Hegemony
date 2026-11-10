@@ -30,7 +30,9 @@ func _initialize():
 			main.tavolo3d.dist = float(v[2])
 			main.tavolo3d.pitch = deg_to_rad(float(v[3]))
 			main.tavolo3d._aggiorna_camera()
-			main.pan_mano.visible = false
+			main._mostra_mano()
+		if args.size() > 4:
+			main._plancia_grande(int(args[4]))
 	elif modo == "regole":
 		main._menu_regole()
 	for i in 20:

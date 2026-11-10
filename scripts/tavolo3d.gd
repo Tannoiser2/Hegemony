@@ -23,10 +23,10 @@ const PUB_Y := [1720, 2060, 2400]
 
 var m: Motore
 var cam: Camera3D
-var bersaglio := Vector3(0, 0, 3.5)
+var bersaglio := Vector3(0, 0, 0.8)
 var yaw := 0.0
-var pitch := deg_to_rad(63.0)
-var dist := 45.0
+var pitch := deg_to_rad(70.0)
+var dist := 36.0
 var coord: Dictionary
 var nodi := {}
 var visti := {}
@@ -71,9 +71,6 @@ func _ready() -> void:
 	piano.material_override = mt
 	add_child(piano)
 	_lastra("res://assets/3d/tabellone.webp", Vector3(0, 0, 0), Vector2(20, 30))
-	var img_pl := {0: "plancia_WC", 1: "plancia_MC", 2: "plancia_CC", 3: "plancia_ST"}
-	for c in 4:
-		_lastra("res://assets/3d/%s.webp" % img_pl[c], CENTRO_PLANCIA[c], PLANCIA)
 	zone.clear()
 
 func _tex(path: String) -> Texture2D:
@@ -288,20 +285,6 @@ func aggiorna(motore: Motore) -> void:
 	_aziende()
 	_disoccupati()
 	_servizi_stato()
-	_plancia_operai()
-	_plancia_ceto_medio()
-	_plancia_capitalisti()
-	_plancia_stato()
-	for c in 4:
-		var p := pb(c, 0.5, -0.07, 0.1)
-		var g := m.G(c)
-		var t := "%s   %d PV" % [Dati.NOMI_CLASSE[Dati.CLASSI[c]].to_upper(), int(g["vp"])]
-		scritta("titolo%d" % c, t, p, 62, Dati.COLORI[Dati.CLASSI[c]].lightened(0.35))
-		var t2 := "Influenza %d   Carte %d" % [int(g["inf"]), g["mano"].size()]
-		if int(g["prestiti"]) > 0:
-			t2 += "   PRESTITI %d" % int(g["prestiti"])
-		scritta("sotto%d" % c, t2, pb(c, 0.5, 1.07, 0.1), 44, Color("#d8dce0"))
-		zone.append({"r": Rect2(CENTRO_PLANCIA[c].x - PLANCIA.x / 2, CENTRO_PLANCIA[c].z - PLANCIA.y / 2, PLANCIA.x, PLANCIA.y), "t": "plancia:%d" % c})
 	for k in nodi.keys():
 		if not visti.has(k):
 			var n: Node = nodi[k]
@@ -362,7 +345,7 @@ func _slot_azienda(lista: String, i: int) -> Vector3:
 		"ST":
 			return px(PUB_X[i % 3], PUB_Y[i / 3])
 		"WC":
-			return CENTRO_PLANCIA[1] + Vector3(-4.0 + i * 2.5, ALTO, 5.6)
+			return Vector3(-12.0, ALTO, 7.6 + i * 3.5)
 	return Vector3.ZERO
 
 func _aziende() -> void:
@@ -436,106 +419,21 @@ func _servizi_stato() -> void:
 		if int(b.get("cubi", 0)) > 0:
 			scritta("bencubi%d" % c, "+%d cubi" % int(b["cubi"]), px(xs[c], 840, 0.2), 44)
 
-# ---------------------------------------------------------------- plance
-func _pop_frazione(n: int, x0: float, passo: float, x_icona: float, larg: float) -> float:
-	if n < 10:
-		return x_icona / larg
-	return (x0 + (mini(n, 30) - 10) * passo) / larg
-
-func _plancia_operai() -> void:
-	var c := Motore.WC
-	var g := m.G(c)
-	var n := m.lavoratori(c).size()
-	gettone("popWC", "", pb(c, _pop_frazione(n, 78, 38.9, 42, 900), 159.0 / 515.0), 0.2, Color("#f2f2f2"))
-	gettone("prospWC", "", pb(c, (52 + 55.1 * int(g["prosp"])) / 900.0, 312.0 / 515.0), 0.24, Color("#f2f2f2"))
-	risorsa("soldiWC", "soldi", int(g["soldi"]), pb(c, 762.0 / 900.0, 305.0 / 515.0))
-	var k := 0
-	for r in Dati.RISORSE:
-		risorsa("beniWC" + r, r, int(g["beni"][r]), pb(c, (690 + 48 * k) / 900.0, 440.0 / 515.0))
-		k += 1
-	var xs := {"agr": 91, "lus": 210, "sal": 329, "ist": 448, "med": 567}
-	for ind in xs:
-		var wid: String = g["sind"][ind]
-		if wid != "":
-			lavoratore(wid, m.lav(wid), pb(c, xs[ind] / 900.0, 430.0 / 515.0))
-
-func _plancia_ceto_medio() -> void:
-	var c := Motore.MC
-	var g := m.G(c)
-	var n := m.lavoratori(c).size()
-	gettone("popMC", "", pb(c, _pop_frazione(n, 64, 40, 34, 900), 122.0 / 505.0), 0.2, Color("#f2f2f2"))
-	gettone("prospMC", "", pb(c, (47 + 54.6 * int(g["prosp"])) / 900.0, 246.0 / 505.0), 0.24, Color("#f2f2f2"))
-	risorsa("soldiMC", "soldi", int(g["soldi"]), pb(c, 762.0 / 900.0, 265.0 / 505.0))
-	var k := 0
-	for r in Dati.RISORSE:
-		risorsa("beniMC" + r, r, int(g["beni"][r]), pb(c, (690 + 48 * k) / 900.0, 425.0 / 505.0))
-		k += 1
-	_magazzini(c, {"cibo": [43, 91, 139], "lus": [196, 243, 290], "sal": [348, 395, 442], "ist": [500, 548, 595]}, 375.0, 450.0, 505.0)
-
-func _magazzini(c: int, caselle: Dictionary, y_ris: float, y_prezzo: float, alt: float) -> void:
-	var g := m.G(c)
-	for r in caselle:
-		var xx: Array = caselle[r]
-		risorsa("mag%d%s" % [c, r], r, int(g["mag"][r]), pb(c, float(xx[1]) / 900.0, y_ris / alt))
-		var livelli := [9, 12, 15] if r == "cibo" else [5, 8, 10]
-		var j := maxi(0, livelli.find(int(g["prezzi"][r])))
-		gettone("prezzo%d%s" % [c, r], "", pb(c, float(xx[j]) / 900.0, y_prezzo / alt), 0.13, Color("#111"))
-		if g["extra"].get(r, false):
-			scritta("extra%d%s" % [c, r], "+ magazzino", pb(c, float(xx[1]) / 900.0, (y_ris - 60) / alt, 0.1), 34, Color("#f6b33c"))
-
-func _plancia_capitalisti() -> void:
-	var c := Motore.CC
-	var g := m.G(c)
-	risorsa("introiti", "soldi", int(g["rev"]), pb(c, 229.0 / 900.0, 165.0 / 505.0))
-	risorsa("capitale", "soldi", int(g["cap"]), pb(c, 670.0 / 900.0, 165.0 / 505.0))
-	var liv := int(g["ricchezza"])
-	var xw := 42.0 if liv == 0 else 96.0 + (liv - 1) * 54.4
-	gettone("ricchezza", "", pb(c, xw / 900.0, 255.0 / 505.0), 0.2, Color("#f2f2f2"))
-	_magazzini(c, {"cibo": [47, 97, 147], "lus": [224, 274, 324], "sal": [401, 451, 501], "ist": [577, 627, 677]}, 385.0, 450.0, 505.0)
-	risorsa("infCC", "inf", int(g["inf"]), pb(c, 804.0 / 900.0, 385.0 / 505.0))
-	var ftz := "Zona franca: %d Cibo, %d Lusso" % [int(g["ftz"]["cibo"]), int(g["ftz"]["lus"])]
-	scritta("ftz", ftz, pb(c, 0.5, 1.14, 0.1), 46, Color("#9fd0f0"))
-	# mercato delle aziende sopra la plancia
-	var merc: Array = g["mercato"]
-	for i in merc.size():
-		carta("mercCC%d" % i, "res://assets/carte3d/%s.webp" % merc[i], CENTRO_PLANCIA[c] + Vector3(-3.4 + i * 2.2, ALTO, -5.75), Vector2(2.0, 2.78), "azienda_m:" + str(merc[i]))
-	var mm: Array = m.G(Motore.MC)["mercato"]
-	for i in mm.size():
-		carta("mercMC%d" % i, "res://assets/carte3d/%s.webp" % mm[i], CENTRO_PLANCIA[0] + Vector3(1.1 + i * 2.2, ALTO, -5.75), Vector2(2.0, 2.78), "azienda_m:" + str(mm[i]))
-	scritta("mercCC", "MERCATO", CENTRO_PLANCIA[c] + Vector3(-5.2, 0.2, -5.75), 40, Color("#9fd0f0"))
-	scritta("mercMC", "MERCATO", CENTRO_PLANCIA[0] + Vector3(-2.6, 0.2, -5.75), 40, Color("#ffe08a"))
-
-func _plancia_stato() -> void:
-	var c := Motore.ST
-	var g := m.G(c)
-	var ys := {Motore.WC: 158.0, Motore.MC: 216.0, Motore.CC: 272.0}
-	for k in ys:
-		var l := clampi(int(g["leg"][k]), 1, 10)
-		gettone("leg%d" % k, "res://assets/3d/classe_%s.png" % Dati.CLASSI[k], pb(c, (97 + 57 * (l - 1)) / 900.0, ys[k] / 505.0), 0.22, Dati.COLORI[Dati.CLASSI[k]])
-		var t := int(g["tok"][k])
-		for j in mini(t, 4):
-			gettone("tok%d_%d" % [k, j], "res://assets/3d/gettone_%s.png" % Dati.CLASSI[k], pb(c, 1.035, ys[k] / 505.0, 0.11 * j), 0.24, Dati.COLORI[Dati.CLASSI[k]])
-	risorsa("magSTcibo", "cibo", int(g["mag"]["cibo"]), pb(c, 166.0 / 900.0, 405.0 / 505.0))
-	risorsa("magSTlus", "lus", int(g["mag"]["lus"]), pb(c, 445.0 / 900.0, 405.0 / 505.0))
-	risorsa("infST", "inf", int(g["inf"]), pb(c, 724.0 / 900.0, 405.0 / 505.0))
-	if int(g["agenda"]) >= 0:
-		carta("agenda", "res://assets/carte3d/g%02d.webp" % int(g["agenda"]), CENTRO_PLANCIA[c] + Vector3(-4.2, ALTO, 5.6), Vector2(2.1, 2.92), "agenda")
-
 # ================================================================ camera e input
 func _aggiorna_camera() -> void:
 	pitch = clampf(pitch, deg_to_rad(18), deg_to_rad(89))
 	dist = clampf(dist, 6.0, 70.0)
-	bersaglio.x = clampf(bersaglio.x, -26, 26)
+	bersaglio.x = clampf(bersaglio.x, -16, 16)
 	bersaglio.z = clampf(bersaglio.z, -20, 18)
 	var dir := Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch))
 	cam.position = bersaglio + dir * dist
 	cam.look_at(bersaglio, Vector3.UP)
 
 func reimposta_camera() -> void:
-	bersaglio = Vector3(0, 0, 3.5)
+	bersaglio = Vector3(0, 0, 0.8)
 	yaw = 0.0
-	pitch = deg_to_rad(63.0)
-	dist = 45.0
+	pitch = deg_to_rad(70.0)
+	dist = 36.0
 	_aggiorna_camera()
 
 func vista(nome: String) -> void:
@@ -545,11 +443,11 @@ func vista(nome: String) -> void:
 			yaw = 0.0
 			pitch = deg_to_rad(80)
 			dist = 33.0
-		"plance":
-			bersaglio = Vector3(0, 0, -6)
+		"aziende":
+			bersaglio = Vector3(0, 0, 6.5)
 			yaw = 0.0
-			pitch = deg_to_rad(62)
-			dist = 44.0
+			pitch = deg_to_rad(72)
+			dist = 22.0
 	_aggiorna_camera()
 
 func _pan(delta: Vector2) -> void:

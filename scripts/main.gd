@@ -549,7 +549,7 @@ func _apri_partita() -> void:
 	# tavolo 3D con tabellone, plance e pedine
 	vista3d = SubViewportContainer.new()
 	vista3d.position = Vector2(0, 46)
-	vista3d.size = Vector2(1212, 854)
+	vista3d.size = Vector2(1212, 648)
 	vista3d.stretch = true
 	vista3d.mouse_filter = Control.MOUSE_FILTER_STOP
 	schermo.add_child(vista3d)
@@ -591,7 +591,7 @@ func _costruisci_hud() -> void:
 	th.add_child(bottone("VISTA", _cambia_vista, Color("#3a424d"), 13))
 	th.add_child(bottone("PANNELLI", func(): pan_sx.visible = not pan_sx.visible, Color("#3a424d"), 13))
 	th.add_child(bottone("ELENCO", func(): pan_sc.visible = not pan_sc.visible, Color("#3a424d"), 13))
-	th.add_child(bottone("MANO", func(): pan_mano.visible = not pan_mano.visible, Color("#3a424d"), 13))
+	th.add_child(bottone("MANO", _mostra_mano, Color("#3a424d"), 13))
 	th.add_child(bottone("DIARIO", _apri_diario, Color("#3a424d"), 13))
 	th.add_child(bottone("REGOLE", _menu_regole, Color("#3a424d"), 13))
 	th.add_child(bottone("VELOCITÀ IA", _cambia_velocita, Color("#3a424d"), 13))
@@ -695,6 +695,11 @@ func _costruisci_hud() -> void:
 	zoom_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	schermo.add_child(zoom_layer)
 
+## La mano sta sotto il tavolo 3D: se la nascondi il tavolo occupa anche quello spazio.
+func _mostra_mano() -> void:
+	pan_mano.visible = not pan_mano.visible
+	vista3d.size = Vector2(1212, 648 if pan_mano.visible else 854)
+
 func _cambia_vista() -> void:
 	var v: int = (int(get_meta("vista", 0)) + 1) % 3
 	set_meta("vista", v)
@@ -704,7 +709,7 @@ func _cambia_vista() -> void:
 		1:
 			tavolo3d.vista("tabellone")
 		2:
-			tavolo3d.vista("plance")
+			tavolo3d.vista("aziende")
 
 ## Clic su una carta o una plancia del tavolo 3D: dettagli in italiano.
 func _dettagli_3d(chiave: String) -> void:
@@ -1310,11 +1315,231 @@ func _tooltip_azienda(aid: String) -> String:
 	return t
 
 # ---------------------------------------------------------------- plance delle classi
+var scheda := -1
+
 func _aggiorna_giocatori() -> void:
 	for c in col_giocatori.get_children():
 		c.queue_free()
+	if scheda < 0:
+		scheda = maxi(0, io())
+	var a := m.attesa()
+	var di_turno := int(a["g"]) if not a.is_empty() else -1
+	# linguette delle quattro classi
+	var tabs := HBoxContainer.new()
+	tabs.add_theme_constant_override("separation", 3)
+	col_giocatori.add_child(tabs)
 	for i in 4:
-		col_giocatori.add_child(_plancia(i))
+		var col: Color = Dati.COLORI[Dati.CLASSI[i]]
+		var sel := i == scheda
+		var b := Button.new()
+		b.text = "%s\n%d PV" % [Dati.NOMI_BREVI[Dati.CLASSI[i]], int(m.G(i)["vp"])]
+		b.add_theme_font_override("font", F_BOLD)
+		b.add_theme_font_size_override("font_size", 12)
+		b.add_theme_color_override("font_color", Color.WHITE if sel else C_SPENTO)
+		var fondo := col.darkened(0.25) if sel else col.darkened(0.7)
+		var bordo := C_ORO if i == di_turno else (col if sel else Color(col, 0.4))
+		b.add_theme_stylebox_override("normal", stile(fondo, bordo, 2 if i == di_turno or sel else 1, 6))
+		b.add_theme_stylebox_override("hover", stile(col.darkened(0.4), C_ORO, 2, 6))
+		b.add_theme_stylebox_override("pressed", stile(fondo, C_ORO, 2, 6))
+		b.add_theme_stylebox_override("focus", stile(Color(0, 0, 0, 0), Color(0, 0, 0, 0), 0, 6))
+		b.custom_minimum_size = Vector2(88, 40)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		b.pressed.connect(func():
+			scheda = i
+			_aggiorna_giocatori())
+		tabs.add_child(b)
+	# plancia originale con i segnalini
+	var pl := plancia_originale(scheda, 366.0)
+	pl.tooltip_text = "Clic per ingrandire la plancia"
+	pl.mouse_filter = Control.MOUSE_FILTER_STOP
+	pl.gui_input.connect(func(ev):
+		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+			_plancia_grande(scheda))
+	col_giocatori.add_child(pl)
+	col_giocatori.add_child(_plancia(scheda))
+	var extra := _carte_scheda(scheda, 62.0)
+	if extra != null:
+		col_giocatori.add_child(extra)
+
+## Mercato delle aziende (Ceto medio e Capitalisti) o Agenda politica (Stato) sotto la plancia.
+func _carte_scheda(c: int, w: float) -> Control:
+	var lista := []
+	var titolo := ""
+	if c in [1, 2]:
+		titolo = "MERCATO DELLE AZIENDE"
+		for aid in m.G(c)["mercato"]:
+			lista.append(["res://assets/carte3d/%s.webp" % aid, _scheda_azienda(aid)])
+	elif c == 3 and int(m.G(3)["agenda"]) >= 0:
+		titolo = "AGENDA POLITICA"
+		lista.append(["res://assets/carte3d/g%02d.webp" % int(m.G(3)["agenda"]), ""])
+	if lista.is_empty():
+		return null
+	var v := VBoxContainer.new()
+	v.add_child(titolo_sezione(titolo))
+	var h := HBoxContainer.new()
+	h.add_theme_constant_override("separation", 4)
+	v.add_child(h)
+	for x in lista:
+		var t := immagine(x[0], w, w * 500.0 / 360.0, TextureRect.STRETCH_KEEP_ASPECT)
+		t.mouse_filter = Control.MOUSE_FILTER_STOP
+		t.tooltip_text = x[1]
+		var path: String = x[0]
+		t.gui_input.connect(func(ev):
+			if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+				_mostra_carta_grande(path))
+		h.add_child(t)
+	return v
+
+func _mostra_carta_grande(path: String) -> void:
+	_chiudi_zoom()
+	var velo := ColorRect.new()
+	velo.color = Color(0, 0, 0, 0.6)
+	velo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	velo.gui_input.connect(func(e):
+		if e is InputEventMouseButton and e.pressed:
+			_chiudi_zoom())
+	zoom_layer.add_child(velo)
+	zoom_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	var t := immagine(path, 360, 500, TextureRect.STRETCH_KEEP_ASPECT)
+	t.position = Vector2(620, 180)
+	velo.add_child(t)
+
+func _plancia_grande(c: int) -> void:
+	_chiudi_zoom()
+	var velo := ColorRect.new()
+	velo.color = Color(0, 0, 0, 0.7)
+	velo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	velo.gui_input.connect(func(e):
+		if e is InputEventMouseButton and e.pressed:
+			_chiudi_zoom())
+	zoom_layer.add_child(velo)
+	zoom_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	var pl := plancia_originale(c, 1150.0)
+	pl.position = Vector2(30, 120)
+	velo.add_child(pl)
+	var l := etichetta("(clic per chiudere)", F_REG, 14, C_SPENTO)
+	l.position = Vector2(30, 90)
+	velo.add_child(l)
+
+# ---------------------------------------------------------------- plance originali (immagini del gioco con i segnalini)
+const IMG_PLANCIA := {0: "plancia_WC", 1: "plancia_MC", 2: "plancia_CC", 3: "plancia_ST"}
+const ALT_PLANCIA := {0: 515.0, 1: 505.0, 2: 505.0, 3: 505.0}
+const GETTONI_RIS := {"cibo": "t_cibo", "lus": "t_lus", "sal": "t_sal", "ist": "t_ist", "soldi": "t_soldi"}
+
+func plancia_originale(c: int, w: float) -> Control:
+	var h := w / (2048.0 / 1150.0)
+	var box := Control.new()
+	box.custom_minimum_size = Vector2(w, h)
+	box.clip_contents = true
+	var img := immagine("res://assets/3d/%s.webp" % IMG_PLANCIA[c], w, h, TextureRect.STRETCH_SCALE)
+	box.add_child(img)
+	var g := m.G(c)
+	var u := w / 900.0
+	var alt: float = ALT_PLANCIA[c]
+	var punto := func(fx: float, fy: float) -> Vector2: return Vector2(fx / 900.0 * w, fy / alt * h)
+	match c:
+		0:
+			var n := m.lavoratori(0).size()
+			_segnalino(box, punto.call(_x_pop(n, 78, 38.9, 42), 159), 16 * u)
+			_segnalino(box, punto.call(52 + 55.1 * int(g["prosp"]), 312), 20 * u)
+			_ris(box, "soldi", int(g["soldi"]), punto.call(762, 300), u)
+			var k := 0
+			for r in Dati.RISORSE:
+				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k, 440), u)
+				k += 1
+			var xs := {"agr": 91, "lus": 210, "sal": 329, "ist": 448, "med": 567}
+			for ind in xs:
+				if g["sind"][ind] != "":
+					var mp := meeple(ind, 0, 34 * u)
+					mp.position = punto.call(xs[ind], 430) - Vector2(17, 19) * u
+					box.add_child(mp)
+		1:
+			var n2 := m.lavoratori(1).size()
+			_segnalino(box, punto.call(_x_pop(n2, 64, 40, 34), 122), 16 * u)
+			_segnalino(box, punto.call(47 + 54.6 * int(g["prosp"]), 246), 20 * u)
+			_ris(box, "soldi", int(g["soldi"]), punto.call(762, 262), u)
+			var k2 := 0
+			for r in Dati.RISORSE:
+				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k2, 425), u)
+				k2 += 1
+			_magazzini_2d(box, c, {"cibo": [43, 91, 139], "lus": [196, 243, 290], "sal": [348, 395, 442], "ist": [500, 548, 595]}, 375, 450, punto, u)
+		2:
+			_ris(box, "soldi", int(g["rev"]), punto.call(229, 160), u)
+			_ris(box, "soldi", int(g["cap"]), punto.call(670, 160), u)
+			var liv := int(g["ricchezza"])
+			_segnalino(box, punto.call(42.0 if liv == 0 else 96.0 + (liv - 1) * 54.4, 255), 18 * u)
+			_magazzini_2d(box, c, {"cibo": [47, 97, 147], "lus": [224, 274, 324], "sal": [401, 451, 501], "ist": [577, 627, 677]}, 385, 450, punto, u)
+			_ris(box, "inf", int(g["inf"]), punto.call(804, 385), u)
+		3:
+			var ys := {0: 158, 1: 216, 2: 272}
+			for k3 in ys:
+				var l := clampi(int(g["leg"][k3]), 1, 10)
+				var t := immagine("res://assets/3d/classe_%s.png" % Dati.CLASSI[k3], 26 * u, 26 * u, TextureRect.STRETCH_KEEP_ASPECT)
+				t.position = punto.call(97 + 57 * (l - 1), ys[k3]) - Vector2(13, 13) * u
+				box.add_child(t)
+				var tk := int(g["tok"][k3])
+				if tk > 0:
+					var gt := immagine("res://assets/3d/gettone_%s.png" % Dati.CLASSI[k3], 30 * u, 30 * u, TextureRect.STRETCH_KEEP_ASPECT)
+					gt.position = punto.call(700, ys[k3]) - Vector2(15, 15) * u
+					box.add_child(gt)
+					_numero(box, "x%d" % tk, punto.call(700, ys[k3]) + Vector2(16, -10) * u, u)
+			_ris(box, "cibo", int(g["mag"]["cibo"]), punto.call(166, 405), u)
+			_ris(box, "lus", int(g["mag"]["lus"]), punto.call(445, 405), u)
+			_ris(box, "inf", int(g["inf"]), punto.call(724, 405), u)
+	return box
+
+func _x_pop(n: int, x0: float, passo: float, x_icona: float) -> float:
+	if n < 10:
+		return x_icona
+	return x0 + (mini(n, 30) - 10) * passo
+
+func _segnalino(box: Control, p: Vector2, r: float) -> void:
+	var c := Panel.new()
+	var st := stile(Color("#f4f4f2"), Color("#1b1d21"), maxi(1, int(r / 6)), int(r))
+	c.add_theme_stylebox_override("panel", st)
+	c.size = Vector2(r * 2, r * 2)
+	c.position = p - Vector2(r, r)
+	c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_child(c)
+
+func _numero(box: Control, t: String, p: Vector2, u: float) -> void:
+	var l := etichetta(t, F_NERO, maxi(9, int(26 * u)), Color.WHITE)
+	l.add_theme_constant_override("outline_size", maxi(3, int(8 * u)))
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.9))
+	l.position = p
+	box.add_child(l)
+
+## Gettone di risorsa con il numero.
+func _ris(box: Control, r: String, n: int, p: Vector2, u: float) -> void:
+	var d := 40 * u
+	var t: TextureRect
+	if GETTONI_RIS.has(r):
+		t = immagine("res://assets/3d/%s.png" % GETTONI_RIS[r], d, d, TextureRect.STRETCH_KEEP_ASPECT)
+	else:
+		t = icona(r, d)
+	t.position = p - Vector2(d, d) / 2
+	box.add_child(t)
+	var l := etichetta(str(n), F_NERO, maxi(10, int(30 * u)), Color.WHITE)
+	l.add_theme_constant_override("outline_size", maxi(3, int(9 * u)))
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.95))
+	l.position = p + Vector2(d * 0.55, -d * 0.62)
+	box.add_child(l)
+
+func _magazzini_2d(box: Control, c: int, caselle: Dictionary, y_ris: float, y_prezzo: float, punto: Callable, u: float) -> void:
+	var g := m.G(c)
+	for r in caselle:
+		var xx: Array = caselle[r]
+		_ris(box, r, int(g["mag"][r]), punto.call(xx[1], y_ris), u)
+		var livelli := [9, 12, 15] if r == "cibo" else [5, 8, 10]
+		var j := maxi(0, livelli.find(int(g["prezzi"][r])))
+		var p: Vector2 = punto.call(xx[j], y_prezzo)
+		var c2 := Panel.new()
+		var rr := 20 * u
+		c2.add_theme_stylebox_override("panel", stile(Color(0, 0, 0, 0), C_ORO, maxi(2, int(5 * u)), int(rr)))
+		c2.size = Vector2(rr * 2, rr * 2)
+		c2.position = p - Vector2(rr, rr)
+		c2.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		box.add_child(c2)
 
 func _riga_val(h: HBoxContainer, ic: String, val: String, col := C_TESTO, d := 16.0) -> void:
 	if ic != "":
@@ -1394,15 +1619,6 @@ func _plancia(i: int) -> Control:
 			r7.add_theme_constant_override("separation", 4)
 			v.add_child(r7)
 			r7.add_child(etichetta("Zona franca: %d cibo, %d lusso · Ricchezza liv. %d" % [int(g["ftz"]["cibo"]), int(g["ftz"]["lus"]), int(g["ricchezza"])], F_SEMI, 11))
-			var r8 := HBoxContainer.new()
-			v.add_child(r8)
-			r8.add_child(etichetta("Mercato:", F_SEMI, 11, C_SPENTO))
-			var nomi := []
-			for aid in g["mercato"]:
-				nomi.append("%s (%d)" % [Dati.az(aid)["n"], int(Dati.az(aid)["costo"])])
-			var lm := testo_lungo(", ".join(nomi), 10, C_TESTO)
-			lm.custom_minimum_size = Vector2(290, 0)
-			r8.add_child(lm)
 		Motore.ST:
 			var r9 := HBoxContainer.new()
 			r9.add_theme_constant_override("separation", 6)
@@ -1433,7 +1649,7 @@ func _plancia(i: int) -> Control:
 				var lb := testo_lungo("Benefici da ritirare — " + "; ".join(ben), 10, C_ORO)
 				lb.custom_minimum_size = Vector2(340, 0)
 				v.add_child(lb)
-	if i in [Motore.MC, Motore.CC] and i == io() and not g["mercato"].is_empty() and i == Motore.MC:
+	if false:
 		var rm := HBoxContainer.new()
 		v.add_child(rm)
 		rm.add_child(etichetta("Mercato:", F_SEMI, 11, C_SPENTO))
