@@ -1332,17 +1332,19 @@ func _aggiorna_giocatori() -> void:
 		var col: Color = Dati.COLORI[Dati.CLASSI[i]]
 		var sel := i == scheda
 		var b := Button.new()
-		b.text = "%s\n%d PV" % [Dati.NOMI_BREVI[Dati.CLASSI[i]], int(m.G(i)["vp"])]
+		var chi := " (tu)" if umano(i) else ""
+		b.text = "%s%s\n%d PV, %d carte" % [Dati.NOMI_BREVI[Dati.CLASSI[i]], chi, int(m.G(i)["vp"]), m.G(i)["mano"].size()]
 		b.add_theme_font_override("font", F_BOLD)
-		b.add_theme_font_size_override("font_size", 12)
+		b.add_theme_font_size_override("font_size", 10)
 		b.add_theme_color_override("font_color", Color.WHITE if sel else C_SPENTO)
+		b.clip_text = true
 		var fondo := col.darkened(0.25) if sel else col.darkened(0.7)
 		var bordo := C_ORO if i == di_turno else (col if sel else Color(col, 0.4))
 		b.add_theme_stylebox_override("normal", stile(fondo, bordo, 2 if i == di_turno or sel else 1, 6))
 		b.add_theme_stylebox_override("hover", stile(col.darkened(0.4), C_ORO, 2, 6))
 		b.add_theme_stylebox_override("pressed", stile(fondo, C_ORO, 2, 6))
 		b.add_theme_stylebox_override("focus", stile(Color(0, 0, 0, 0), Color(0, 0, 0, 0), 0, 6))
-		b.custom_minimum_size = Vector2(88, 40)
+		b.custom_minimum_size = Vector2(60, 40)
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		b.pressed.connect(func():
 			scheda = i
@@ -1356,7 +1358,6 @@ func _aggiorna_giocatori() -> void:
 		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
 			_plancia_grande(scheda))
 	col_giocatori.add_child(pl)
-	col_giocatori.add_child(_plancia(scheda))
 	var extra := _carte_scheda(scheda, 62.0)
 	if extra != null:
 		col_giocatori.add_child(extra)
@@ -1445,7 +1446,7 @@ func plancia_originale(c: int, w: float) -> Control:
 			_ris(box, "soldi", int(g["soldi"]), punto.call(762, 300), u)
 			var k := 0
 			for r in Dati.RISORSE:
-				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k, 440), u)
+				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k, 440), u, true)
 				k += 1
 			var xs := {"agr": 91, "lus": 210, "sal": 329, "ist": 448, "med": 567}
 			for ind in xs:
@@ -1460,7 +1461,7 @@ func plancia_originale(c: int, w: float) -> Control:
 			_ris(box, "soldi", int(g["soldi"]), punto.call(762, 262), u)
 			var k2 := 0
 			for r in Dati.RISORSE:
-				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k2, 425), u)
+				_ris(box, r, int(g["beni"][r]), punto.call(690 + 48 * k2, 425), u, true)
 				k2 += 1
 			_magazzini_2d(box, c, {"cibo": [43, 91, 139], "lus": [196, 243, 290], "sal": [348, 395, 442], "ist": [500, 548, 595]}, 375, 450, punto, u)
 		2:
@@ -1510,7 +1511,7 @@ func _numero(box: Control, t: String, p: Vector2, u: float) -> void:
 	box.add_child(l)
 
 ## Gettone di risorsa con il numero.
-func _ris(box: Control, r: String, n: int, p: Vector2, u: float) -> void:
+func _ris(box: Control, r: String, n: int, p: Vector2, u: float, centro := false) -> void:
 	var d := 40 * u
 	var t: TextureRect
 	if GETTONI_RIS.has(r):
@@ -1522,7 +1523,12 @@ func _ris(box: Control, r: String, n: int, p: Vector2, u: float) -> void:
 	var l := etichetta(str(n), F_NERO, maxi(10, int(30 * u)), Color.WHITE)
 	l.add_theme_constant_override("outline_size", maxi(3, int(9 * u)))
 	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.95))
-	l.position = p + Vector2(d * 0.55, -d * 0.62)
+	if centro:
+		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		l.size = Vector2(d, d)
+		l.position = p + Vector2(-d * 0.5, -d * 0.1)
+	else:
+		l.position = p + Vector2(d * 0.55, -d * 0.62)
 	box.add_child(l)
 
 func _magazzini_2d(box: Control, c: int, caselle: Dictionary, y_ris: float, y_prezzo: float, punto: Callable, u: float) -> void:
